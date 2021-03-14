@@ -34,7 +34,13 @@
 6.ui design：![Image text](https://github.com/TeamworkEcnu2021/teamwork/blob/main/img-folder/ui.jpg)
 
 7.labor division
-    name       role              task
+    name       role                        task
+    刘盛平     designer
+    张紫瑶     designer
+    何弦       developer&documentation
+    程瑶丽     developer
+    祁琦       developer
+    冯俊桦     developer
     
 8.weekly progress update：
 2021/3/7-2021/3/14：讨论确定app具体方案：全组
