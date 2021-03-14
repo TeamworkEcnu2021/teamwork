@@ -31,8 +31,11 @@
     计分板
     汇率转换
 
-6.1
+6.ui design：
+
 7.labor division
+    name       role              task
+    
 8.weekly progress update：
 2021/3/7-2021/3/14：讨论确定app具体方案：全组
                     编辑readme文档：何弦
