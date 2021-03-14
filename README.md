@@ -31,7 +31,7 @@
     计分板
     汇率转换
 
-6.ui design：
+6.ui design：![Image text]（）
 
 7.labor division
     name       role              task
