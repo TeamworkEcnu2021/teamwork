@@ -31,7 +31,7 @@
     计分板
     汇率转换
 
-6.ui design：![Image text]（）
+6.ui design：![Image text]（https://github.com/TeamworkEcnu2021/teamwork/blob/main/img-folder/ui.jpg）
 
 7.labor division
     name       role              task
