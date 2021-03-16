@@ -1,33 +1,32 @@
 # teamwork
-------
 
 ## 1.teammates:
-------
-  name      ID
   
-  何弦      10195101407
+    name      ID
   
-  刘盛平    10195101406
+    何弦      10195101407
   
-  程瑶丽    10195101405
+    刘盛平    10195101406
   
-  祁琦      10195101486
+    程瑶丽    10195101405
   
-  冯俊桦    10195101490
+    祁琦      10195101486
   
-  张紫瑶    10195101437
+    冯俊桦    10195101490
+  
+    张紫瑶    10195101437
 
 ## 2.group name: 
-------
-TeamworkEcnu2021
+
+    TeamworkEcnu2021
 
 ## 3.
-------
-  (1)target users:
+
+  ### target users:
   
     学生党，上班族
   
-  (2)novelty:
+  ### novelty:
   
     keywords: 便捷，实用，功能丰富
     
@@ -36,11 +35,11 @@ TeamworkEcnu2021
     功能集中，just for fun，no ads
 
 ## 4.
-------
-测试简单，安装于任意安卓系统手机，无需特殊数据输入，无额外硬件需求
+
+    测试简单，安装于任意安卓系统手机，无需特殊数据输入，无额外硬件需求
 
 ## 5.features：
-------    
+    
     手持弹幕
     
     全屏时钟
@@ -62,11 +61,11 @@ TeamworkEcnu2021
     汇率转换
 
 ## 6.ui design：
--------
+
 ![Image text](https://github.com/TeamworkEcnu2021/teamwork/blob/main/img-folder/ui.jpg)
 
 ## 7.labor division
-------
+
     name       role                        task
     
     刘盛平     designer
@@ -82,8 +81,8 @@ TeamworkEcnu2021
     冯俊桦     developer
     
 ## 8.weekly progress update：
-------
-2021/3/7-2021/3/14：
+
+  ### 2021/3/7-2021/3/14：
     
     讨论确定app具体方案：全组
                     
