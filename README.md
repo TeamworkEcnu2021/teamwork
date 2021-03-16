@@ -72,13 +72,13 @@
     
     刘盛平     designer
     
-    张紫瑶     designer
+    张紫瑶     developer
     
     何弦       developer&documentation
     
     程瑶丽     developer
     
-    祁琦       developer
+    祁琦       designer
     
     冯俊桦     developer
     
@@ -94,3 +94,5 @@
     讨论后重新确定方案：全组
     
     文档：何弦
+    
+    ui设计：祁琦
