@@ -1,7 +1,7 @@
 # teamwork
 ------
 
-##1.teammates:
+## 1.teammates:
 ------
   name      ID
   
@@ -17,11 +17,11 @@
   
   张紫瑶    10195101437
 
-##2.group name: 
+## 2.group name: 
 ------
 TeamworkEcnu2021
 
-##3.
+## 3.
 ------
   (1)target users:
   
@@ -35,11 +35,11 @@ TeamworkEcnu2021
     
     功能集中，just for fun，no ads
 
-##4.
+## 4.
 ------
 测试简单，安装于任意安卓系统手机，无需特殊数据输入，无额外硬件需求
 
-##5.features：
+## 5.features：
 ------    
     手持弹幕
     
@@ -61,11 +61,11 @@ TeamworkEcnu2021
     
     汇率转换
 
-##6.ui design：
+## 6.ui design：
 -------
 ![Image text](https://github.com/TeamworkEcnu2021/teamwork/blob/main/img-folder/ui.jpg)
 
-##7.labor division
+## 7.labor division
 ------
     name       role                        task
     
@@ -81,7 +81,7 @@ TeamworkEcnu2021
     
     冯俊桦     developer
     
-##8.weekly progress update：
+## 8.weekly progress update：
 ------
 2021/3/7-2021/3/14：
     
