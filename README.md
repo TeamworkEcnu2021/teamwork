@@ -64,7 +64,7 @@
 
 ## 6.ui design：
 
-
+https://modao.cc/app/b464215832e4e52b5dfc01cbd630883a0e2c34af?simulator_type=device&sticky
 
 ## 7.labor division
 
