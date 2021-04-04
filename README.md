@@ -96,3 +96,11 @@ https://modao.cc/app/b464215832e4e52b5dfc01cbd630883a0e2c34af?simulator_type=dev
     文档：何弦
     
     ui设计：祁琦
+    
+  ### 2021/3/15-2021/3/21：
+    
+    完成小组产品需求分析
+    
+    文档：刘盛平
+    
+    usecase 设计：全组
