@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">touralbum</string>
+    <string name="title_events">Events</string>
+    <string name="title_discovery">Discovery</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_account">Account</string>
 </resources>
