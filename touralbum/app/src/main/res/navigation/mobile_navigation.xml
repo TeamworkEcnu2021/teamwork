@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_discovery" />
 
     <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.example.touralbum.ui.add.AddFragment"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add" />
+
+    <fragment
         android:id="@+id/navigation_chat"
         android:name="com.example.touralbum.ui.chat.ChatFragment"
         android:label="@string/title_chat"
