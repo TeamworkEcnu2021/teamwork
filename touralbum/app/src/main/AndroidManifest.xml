@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Touralbum">
-        <activity android:name=".fragementOfDiscover"></activity>
+        <activity android:name=".fragement_discover"></activity>
         <activity android:name=".fragement_create" />
     </application>
 
