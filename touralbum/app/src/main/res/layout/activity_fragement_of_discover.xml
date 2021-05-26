@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_discover"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECECEC"
+    tools:context=".fragementOfDiscover">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#59B3B3B3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_discovery"
+            android:layout_centerInParent="true"
+            android:text="@string/big_title"
+            android:textColor="#2B2B2B"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/image1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitCenter"
+                android:layout_width="380dp"
+                android:layout_height="213dp"
+                android:contentDescription="@string/todo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="15dp"
+
+                android:text="@string/string_text1"
+                android:textSize="18sp"/>
+            <ImageView
+                android:src="@drawable/image1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitCenter"
+                android:layout_width="380dp"
+                android:layout_height="213dp"
+                android:contentDescription="@string/todo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="15dp"
+
+                android:text="@string/string_text1"
+                android:textSize="18sp"/>
+            <ImageView
+                android:src="@drawable/image1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitCenter"
+                android:layout_width="380dp"
+                android:layout_height="213dp"
+                android:contentDescription="@string/todo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="15dp"
+
+                android:text="@string/string_text1"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/create_btn2"
+        android:layout_gravity="center|bottom"
+        android:backgroundTint="#0000"
+        android:src="@drawable/addition_fill"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        android:layout_height="80dp"
+        android:layout_width="80dp"/>
+</FrameLayout>
