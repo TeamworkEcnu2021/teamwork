@@ -1,9 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragement_create">
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#59B3B3B3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/main_title"
+            android:textColor="#2B2B2B"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:id="@+id/bt_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:src="@drawable/back_balck"
+            android:contentDescription="@string/todo" />
+    </RelativeLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/creating1"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="@string/attribute1"
+                android:textColor="#797979"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/trip_title"
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/hint1"
+                android:inputType="text"
+                android:imeOptions="actionUnspecified">
+
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/attribute2"
+                android:textColor="#797979"
+                android:textSize="18sp" />
+
+            <RadioGroup android:id="@+id/visible">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/option1"
+                    android:textColor="#688599"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/option2"
+                    android:textColor="#688599"
+                    android:textSize="15sp" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/attribute3"
+                android:textColor="#797979"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/trip_date"
+                android:imeOptions="actionUnspecified"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="@string/hint2"
+                android:inputType="date"
+                android:autofillHints=""
+                >
+
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/attribute4"
+                android:textColor="#797979"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/adding"
+                android:src="@mipmap/add"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:scaleType="fitEnd"
+                android:backgroundTint="#0000"
+                android:contentDescription="@string/todo"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/attribute5"
+                android:textColor="#797979"
+                android:textSize="18sp" />
+            <EditText
+                android:id="@+id/location"
+                android:imeOptions="actionUnspecified"
+                android:hint="@string/hint3"
+                android:inputType="text"
+                android:autofillHints="">
+            </EditText>
+        </TableRow>
+    </TableLayout>
+    <ImageButton
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:id="@+id/create_btn"
+        android:background="@mipmap/creating"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="110dp"
+        android:contentDescription="@string/todo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:text="@string/create"
+        android:textSize="15sp"
+        android:textColor="#E7E7E7"/>
+</RelativeLayout>
