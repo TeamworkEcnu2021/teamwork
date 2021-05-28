@@ -1,7 +1,7 @@
 package com.example.touralbum
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.touralbum.eventContent.EventContent
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         val addevent : FloatingActionButton = findViewById(R.id.add_event)
         addevent.setOnClickListener {
             //todo 跳转到create event活动
+            //val intent = Intent(this, EventContent::class.java)
             Toast.makeText(this, "创建出行事件", Toast.LENGTH_SHORT).show()
+            //startActivity(intent)
         }
     }
 }
