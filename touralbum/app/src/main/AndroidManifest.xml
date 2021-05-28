@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Touralbum">
-        <activity android:name=".eventContent.EventContent"></activity>
+        <activity android:name=".eventContent.EventContent" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
