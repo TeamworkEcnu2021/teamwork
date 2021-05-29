@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
         val addevent : FloatingActionButton = findViewById(R.id.add_event)
         addevent.setOnClickListener {
             //todo 跳转到create event活动
-            //val intent = Intent(this, EventContent::class.java)
+            val intent = Intent(this, EventContent::class.java)
             Toast.makeText(this, "创建出行事件", Toast.LENGTH_SHORT).show()
-            //startActivity(intent)
+            startActivity(intent)
         }
     }
 }

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragement_discover"></activity>
+        <activity android:name=".fragement_discover" />
         <activity android:name=".fragement_create" />
     </application>
 

@@ -1,8 +1,11 @@
 package com.example.touralbum.eventContent
 
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.GridView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touralbum.R
@@ -16,6 +19,11 @@ class EventContent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_content)
         supportActionBar?.hide()
+        val toolbar : Toolbar = findViewById(R.id.toolbar_event_content)
+        toolbar.title = "我的标题"//todo 改为取数据得到的标题
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
         initAlbum()
         val layoutManager = GridLayoutManager(this,2)
         val recyclerView : RecyclerView = findViewById(R.id.albumList)
@@ -26,6 +34,12 @@ class EventContent : AppCompatActivity() {
         val gridView :GridView = findViewById(R.id.option_button)
         val funcBtnAdapter = FuncBtnAdapter(this,funcBtnList)
         gridView.adapter = funcBtnAdapter
+        gridView.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id -> when(position){
+                0 -> Toast.makeText(this, "members", Toast.LENGTH_SHORT).show()
+                1 -> Toast.makeText(this, "add album", Toast.LENGTH_SHORT).show()
+                2 -> Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
+            } }//todo 改为跳转到相应页面
     }
 
     private fun initAlbum() {

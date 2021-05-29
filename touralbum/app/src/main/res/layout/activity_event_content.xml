@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_event_content" />
 
     <GridView
         android:id="@+id/option_button"
@@ -31,6 +31,24 @@
         android:numColumns="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/albumList"></GridView>
+        app:layout_constraintTop_toBottomOf="@+id/albumList" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_event_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#59B3B3B3"
+        android:clickable="true"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/app_name"
+        app:titleMarginStart="90dp"
+        app:titleTextColor="#575757"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
