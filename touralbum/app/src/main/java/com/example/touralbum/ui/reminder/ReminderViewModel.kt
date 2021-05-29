@@ -1,13 +1,13 @@
-package com.example.touralbum.ui.account
+package com.example.touralbum.ui.reminder
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AccountViewModel : ViewModel() {
+class ReminderViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is account Fragment"
+        value = "This is reminder Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -1,13 +1,13 @@
-package com.example.touralbum.ui.discovery
+package com.example.touralbum.ui.weather
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DiscoveryModel : ViewModel() {
+class WeatherViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is discovery Fragment"
+        value = "This is weather Fragment"
     }
     val text: LiveData<String> = _text
 }

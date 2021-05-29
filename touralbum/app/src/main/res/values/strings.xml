@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">touralbum</string>
     <string name="title_events">Events</string>
-    <string name="title_discovery">Discovery</string>
-    <string name="title_chat">Chat</string>
-    <string name="title_account">Account</string>
+    <string name="title_diary">Diary</string>
+    <string name="title_weather">Weather</string>
+    <string name="title_reminder">Reminder</string>
     <string name="title_add">add</string>
     <string name="creating1">新建行程</string>
     <string name="attribute1">行程标题</string>

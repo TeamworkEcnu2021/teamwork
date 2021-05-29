@@ -1,4 +1,4 @@
-package com.example.touralbum.ui.account
+package com.example.touralbum.ui.reminder
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.touralbum.R
 
-class AccountFragment : Fragment() {
+class ReminderFragment : Fragment() {
 
-    private lateinit var accountViewModel: AccountViewModel
+    private lateinit var reminderViewModel: ReminderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        accountViewModel =
-            ViewModelProvider(this).get(AccountViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_account, container, false)
+        reminderViewModel =
+            ViewModelProvider(this).get(ReminderViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_reminder, container, false)
         val textView: TextView = root.findViewById(R.id.text_account)
-        accountViewModel.text.observe(viewLifecycleOwner, Observer {
+        reminderViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

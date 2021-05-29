@@ -1,4 +1,4 @@
-package com.example.touralbum.ui.chat
+package com.example.touralbum.ui.weather
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.touralbum.R
 
-class ChatFragment : Fragment() {
+class WeatherFragment : Fragment() {
 
-    private lateinit var chatViewModel: ChatViewModel
+    private lateinit var weatherViewModel: WeatherViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        chatViewModel =
-                ViewModelProvider(this).get(ChatViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_chat, container, false)
+        weatherViewModel =
+                ViewModelProvider(this).get(WeatherViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_weather, container, false)
         val textView: TextView = root.findViewById(R.id.text_chat)
-        chatViewModel.text.observe(viewLifecycleOwner, Observer {
+        weatherViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
