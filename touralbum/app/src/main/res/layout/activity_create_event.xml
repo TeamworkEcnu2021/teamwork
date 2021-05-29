@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="12dp"
             android:background="@null"
-            android:src="@drawable/back_balck"
+            android:src="@drawable/back_black"
             android:contentDescription="@string/todo" />
     </RelativeLayout>
     <TableLayout
@@ -177,14 +177,14 @@
         android:background="@mipmap/creating"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="60dp"
         android:contentDescription="@string/todo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/create"
         android:textSize="15sp"
         android:textColor="#E7E7E7"/>
