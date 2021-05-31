@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.diary.CreateDairy">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/title_create"
+        android:background="#23D3D3D3"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_to_dairy"
+        android:text="@string/back"
+        android:textSize="18sp"
+        android:background="#0000"
+        android:layout_marginTop="3dp"
+        android:textColor="#0076FF"
+        android:backgroundTint="#0000"
+        tools:targetApi="lollipop"
+        style="?android:attr/borderlessButtonStyle" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dairy_done"
+        android:text="@string/done"
+        android:textColor="#0076FF"
+        android:textSize="18sp"
+        android:backgroundTint="#0000"
+        android:layout_marginTop="3dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        tools:ignore="RelativeOverlap"
+        tools:targetApi="lollipop"
+        style="?android:attr/borderlessButtonStyle" />
+    <EditText
+        android:id="@+id/title_input"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@+id/title_create"
+        android:hint="@string/title_input"
+        android:autofillHints="null"
+        android:inputType="textImeMultiLine"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+    </EditText>
+</RelativeLayout>
