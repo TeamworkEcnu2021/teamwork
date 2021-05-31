@@ -26,9 +26,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.weather.Bean.WeatherBean;
-import com.example.weather.adapter.ReAdapter;
-import com.example.weather.adapter.ReAdapter2;
+import com.example.touralbum.weather.Bean.WeatherBean;
+import com.example.touralbum.weather.adapter.ReAdapter;
+import com.example.touralbum.weather.adapter.ReAdapter2;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
