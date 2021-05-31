@@ -22,4 +22,9 @@
     <string name="main_title">创建行程</string>
     <string name="string_text1">今天天气真好呀！</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tour_create">旅行日记</string>
+    <string name="backward"><![CDATA[<]]></string>
+    <string name="back"><![CDATA[< BACK]]></string>
+    <string name="done">DONE</string>
+    <string name="title_input">请输入标题</string>
 </resources>
