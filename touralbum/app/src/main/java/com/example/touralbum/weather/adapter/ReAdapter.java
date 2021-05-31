@@ -1,4 +1,4 @@
-package com.example.weather.adapter;
+package com.example.touralbum.weather.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weather.Bean.WeatherBean;
-import com.example.weather.R;
+import com.example.touralbum.weather.Bean.WeatherBean;
+import com.example.touralbum.weather.R;
 
 import java.util.List;
 
