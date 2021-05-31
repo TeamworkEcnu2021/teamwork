@@ -1,4 +1,4 @@
-package com.example.touralbum.weather;
+package com.example.touralbum;
 
 import org.junit.Test;
 
