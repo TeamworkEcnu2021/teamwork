@@ -1,5 +1,6 @@
 package com.example.touralbum.photoViewer
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.touralbum.Event
 import com.example.touralbum.R
 import com.example.touralbum.eventContent.Album
+import kotlin.math.abs
 
 
 class PhotoViewer : AppCompatActivity() {
@@ -17,6 +19,7 @@ class PhotoViewer : AppCompatActivity() {
     private lateinit var event: Event
     private lateinit var album: Album
     var pos : Int = 1
+    private lateinit var photoViewerAdapter : PhotoViewerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +41,14 @@ class PhotoViewer : AppCompatActivity() {
         album.getData(this,eventName,albumName)
 
         //设置viewpager
-        val photoViewerAdapter = PhotoViewerAdapter(album.photoList)
+        photoViewerAdapter = PhotoViewerAdapter(album.photoList)
         val viewpager = findViewById<ViewPager2>(R.id.photo_view_pager)
         viewpager.adapter = photoViewerAdapter
         viewpager.isUserInputEnabled=true
         viewpager.orientation=ViewPager2.ORIENTATION_HORIZONTAL
         viewpager.setCurrentItem(pos,false)
         val mAnimator = ViewPager2.PageTransformer { page, position ->
-            val absPos = Math.abs(position)
+            val absPos = abs(position)
             val scaleX: Float
             val scaleY: Float
             if (absPos > 1) {
@@ -68,8 +71,23 @@ class PhotoViewer : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.delete_album -> {
-                //todo delete photo
+            R.id.delete_photo -> {
+                val prefs = getSharedPreferences("${event.title}_${album.albumName}",Context.MODE_PRIVATE)
+                val editor = prefs.edit()
+                editor.remove("$pos")
+                var i = pos
+                while(i<album.photoList.size){
+                    val string = prefs.getString("${i+1}","").toString()
+                    editor.putString("$i",string)
+                    i++
+                }
+                editor.remove("$i")
+                editor.apply()
+                album.photoList.removeAt(pos)
+                if(album.photoList.isEmpty()){
+                    finish()
+                }
+                photoViewerAdapter.notifyDataSetChanged()
             }
         }
         return true

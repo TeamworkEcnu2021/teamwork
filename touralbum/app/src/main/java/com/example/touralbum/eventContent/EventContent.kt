@@ -10,8 +10,10 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Base64
 import android.widget.AdapterView
+import android.widget.EditText
 import android.widget.GridView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.touralbum.Event
 import com.example.touralbum.R
 import java.io.ByteArrayInputStream
+import java.io.File
 
 
 class EventContent : AppCompatActivity() {
@@ -27,6 +30,7 @@ class EventContent : AppCompatActivity() {
     private val albumList = ArrayList<Album>()
     private val funcBtnList = ArrayList<FuncBtn>()
     private lateinit var event : Event
+    private lateinit var albumAdapter : AlbumAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +53,7 @@ class EventContent : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this,2)
         val recyclerView : RecyclerView = findViewById(R.id.albumList)
         recyclerView.layoutManager = layoutManager
-        val albumAdapter = AlbumAdapter(albumList,event.title)
+        albumAdapter = AlbumAdapter(albumList,event.title)
         recyclerView.adapter = albumAdapter
 
         //按钮列表
@@ -57,17 +61,68 @@ class EventContent : AppCompatActivity() {
         val gridView :GridView = findViewById(R.id.option_button)
         val funcBtnAdapter = FuncBtnAdapter(this,funcBtnList)
         gridView.adapter = funcBtnAdapter
-        gridView.onItemClickListener =
-            AdapterView.OnItemClickListener { parent, view, position, id -> when(position){
-                0 -> {Toast.makeText(this, "event info", Toast.LENGTH_SHORT).show()}
-                1 -> {
-                    val drawable = ContextCompat.getDrawable(this, R.drawable.ic_baseline_photo_24)
-                    event.albumList.add(Album("new Album",drawableToBitmap(drawable!!)))
-                    Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show()
+        gridView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            when (position) {
+                0 -> {//事件信息
+                    val inputDialog = AlertDialog.Builder(this)
+                    inputDialog.apply {
+                        setTitle("事件信息")
+                        setMessage("title: ${event.title}\ndate: ${event.date}\nmembers: ${event.member}\ndestination: ${event.dest}")
+                        setPositiveButton("确定") { dialog, which -> }
+                    }
                 }
-                2 -> {Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()}
-                3 -> {Toast.makeText(this, "delete event", Toast.LENGTH_SHORT).show()}
-            } }//todo 改为弹出相应对话框和跳转
+                1 -> {//创建新相册
+                    val editText = EditText(this)
+                    val inputDialog = AlertDialog.Builder(this)
+                    inputDialog.setTitle("请输入新相册名").setView(editText)
+                    inputDialog.setPositiveButton("确定") { dialog, which ->
+                        val newName = editText.text.toString()
+                        val drawable =
+                            ContextCompat.getDrawable(this, R.drawable.ic_baseline_photo_24)
+                        event.albumList.add(Album(newName, drawableToBitmap(drawable!!)))
+                        val prefs =
+                            getSharedPreferences("${event.title}_${newName}", Context.MODE_PRIVATE)
+                        val editor = prefs.edit()
+                        editor.putString("albumName", newName)
+                        editor.putInt("photoCount", 0)
+                        editor.apply()
+                        albumAdapter.notifyDataSetChanged()
+                        Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show()
+                    }
+                    inputDialog.setNegativeButton("取消") { dialog, which ->
+                        Toast.makeText(this, "取消了", Toast.LENGTH_SHORT).show()
+                    }
+                    inputDialog.show()
+                }
+                2 -> {//旅行日记
+                    Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
+                    //todo 跳转到对应的日记页面
+                }
+                3 -> {//删除事件
+                    val inputDialog = AlertDialog.Builder(this)
+                    inputDialog.apply {
+                        setTitle("确定删除？")
+                        setMessage("删除之后不可恢复")
+                        setPositiveButton("确定") { dialog, wgich ->
+                            for (album in event.albumList) {
+                                val file =
+                                    File("/data/data/${packageName}/shared_prefs/${event.title}_${album.albumName}")
+                                if (file.exists()) {
+                                    file.delete()
+                                }
+                            }
+                            val file =
+                                File("/data/data/${packageName}/shared_prefs/event_${event.title}")
+                            if (file.exists()) {
+                                file.delete()
+                            }
+                            finish()
+                        }
+                        setNegativeButton("取消") { dialog, wgich -> }
+                    }
+                }
+            }
+        }
     }
 
     private fun drawableToBitmap(drawable: Drawable): Bitmap {

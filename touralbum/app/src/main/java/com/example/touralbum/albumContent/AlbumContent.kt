@@ -22,11 +22,13 @@ import com.example.touralbum.Event
 import com.example.touralbum.R
 import com.example.touralbum.eventContent.Album
 import java.io.ByteArrayOutputStream
+import java.io.File
 
 class AlbumContent : AppCompatActivity() {
 
     private lateinit var album : Album
     private lateinit var event : Event
+    private lateinit var adapter: PhotoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +52,7 @@ class AlbumContent : AppCompatActivity() {
         val layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         val recyclerView :RecyclerView = findViewById(R.id.photoList)
         recyclerView.layoutManager = layoutManager
-        val adapter = PhotoAdapter(album.photoList,eventName,albumName)
+        adapter = PhotoAdapter(album.photoList,eventName,albumName)
         recyclerView.adapter = adapter
     }
 
@@ -70,7 +72,11 @@ class AlbumContent : AppCompatActivity() {
                 startActivityForResult(intent,1)
             }
             R.id.delete_album -> {
-                //todo delete album
+                val file = File("/data/data/${packageName}/shared_prefs/${event.title}_${album.albumName}")
+                if (file.exists()) {
+                    file.delete();
+                    Toast.makeText(this, "相册删除成功！", Toast.LENGTH_SHORT).show();
+                }
             }
         }
         return true
@@ -94,11 +100,14 @@ class AlbumContent : AppCompatActivity() {
                             val byteArray: ByteArray = byteArrayOutputStream.toByteArray()
                             val imageString: String = Base64.encodeToString(byteArray, Base64.DEFAULT)
                             //第三步:将String保持至SharedPreferences
-                            val sharedPreferences = getSharedPreferences("", MODE_PRIVATE)
+                            val sharedPreferences = getSharedPreferences("${event.title}_${album.albumName}", MODE_PRIVATE)
                             val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                            editor.putString("image", imageString)
+                            editor.putString("${album.photoList.size+1}", imageString)
+                            val count = sharedPreferences.getInt("photoCount",0)
+                            editor.putInt("photoCount",count)
                             editor.apply()
-                            //imageView.setImageBitmap(bitmap)
+                            album.photoList.add(Photo(bitmap))
+                            adapter.notifyDataSetChanged()
                         }
                     }
                 }
