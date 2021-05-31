@@ -39,7 +39,7 @@
         <activity android:name=".albumContent.AlbumContent" />
         <activity android:name=".eventContent.EventContent" />
         <activity
-            android:name="com.example.touralbum.Weather.WeatherActivity"
+            android:name="com.example.touralbum.weather.WeatherActivity"
             android:label="@string/app_name">
         </activity>
         <activity
