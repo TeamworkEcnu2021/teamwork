@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Touralbum">
+        <activity android:name=".ui.diary.DairyContent"/>
+        <activity android:name=".ui.diary.DairyList" />
+        <activity android:name=".ui.diary.CreateDairy" />
         <activity android:name=".albumContent.AlbumContent" />
         <activity android:name=".eventContent.EventContent" />
         <activity
