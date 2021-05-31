@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Touralbum">
+        <activity android:name=".photoViewer.PhotoViewer"></activity>
         <activity android:name=".albumContent.AlbumContent" />
         <activity android:name=".eventContent.EventContent" />
         <activity

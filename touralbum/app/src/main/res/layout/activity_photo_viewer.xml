@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".albumContent.AlbumContent">
+    tools:context=".photoViewer.PhotoViewer">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_event_content"
+        android:id="@+id/toolbar_photo_viewer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#59B3B3B3"
@@ -18,28 +18,19 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/album_content_menu"
+        app:menu="@menu/photo_viewer_menu"
         app:navigationIcon="@drawable/ic_back"
-        app:title="@string/app_name"
         app:titleMarginStart="90dp"
         app:titleTextColor="#575757"
         android:focusable="true" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/photoList"
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/side_shadow"
-        android:scrollbars="vertical"
+        android:id="@+id/photo_view_pager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_event_content"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_photo_viewer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--标题栏-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -77,37 +78,6 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/attribute2"
-                android:textColor="#797979"
-                android:textSize="18sp" />
-
-            <RadioGroup android:id="@+id/visible">
-
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/option1"
-                    android:textColor="#688599"
-                    android:textSize="15sp" />
-
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/option2"
-                    android:textColor="#688599"
-                    android:textSize="15sp" />
-            </RadioGroup>
-        </TableRow>
-
-        <TableRow
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,14 +110,14 @@
                 android:textColor="#797979"
                 android:textSize="18sp" />
 
-            <ImageButton
-                android:id="@+id/adding"
-                android:src="@mipmap/add"
-                android:layout_width="180dp"
-                android:layout_height="40dp"
-                android:scaleType="fitEnd"
-                android:backgroundTint="#0000"
-                android:contentDescription="@string/todo"/>
+            <EditText
+                android:id="@+id/trip_member"
+                android:imeOptions="actionUnspecified"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="请输入成员姓名"
+                android:inputType="date"
+                android:autofillHints="" />
         </TableRow>
 
         <TableRow
