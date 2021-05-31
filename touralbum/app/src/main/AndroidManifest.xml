@@ -39,6 +39,10 @@
         <activity android:name=".albumContent.AlbumContent" />
         <activity android:name=".eventContent.EventContent" />
         <activity
+            android:name="com.example.touralbum.Weather.Weather_Activity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
