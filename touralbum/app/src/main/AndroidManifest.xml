@@ -34,7 +34,6 @@
             android:name="com.baidu.lbsapi.APT_KEY"
             android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6"/>
 
-        <activity android:name=".ui.diary.DairyContent"/>
         <activity android:name=".ui.diary.DairyList" />
         <activity android:name=".ui.diary.CreateDairy" />
         <activity android:name=".albumContent.AlbumContent" />

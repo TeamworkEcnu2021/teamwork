@@ -6,9 +6,8 @@
     tools:context=".ui.diary.CreateDairy">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/title_create"
-        android:background="#23D3D3D3"/>
+        android:layout_height="50dp"
+        android:id="@+id/title_create"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,10 +16,7 @@
         android:textSize="18sp"
         android:background="#0000"
         android:layout_marginTop="3dp"
-        android:textColor="#0076FF"
-        android:backgroundTint="#0000"
-        tools:targetApi="lollipop"
-        style="?android:attr/borderlessButtonStyle" />
+        android:textColor="#0076FF" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,24 +24,47 @@
         android:text="@string/done"
         android:textColor="#0076FF"
         android:textSize="18sp"
-        android:backgroundTint="#0000"
+        android:background="#0000"
         android:layout_marginTop="3dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp"
-        tools:ignore="RelativeOverlap"
-        tools:targetApi="lollipop"
-        style="?android:attr/borderlessButtonStyle" />
+        tools:ignore="RelativeOverlap"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/tv_now"
+        android:layout_below="@id/title_create"
+        android:background="#9CE5F4FF"
+        android:textAlignment="textEnd"
+        android:gravity="end|center_vertical"
+        android:paddingEnd="8dp"/>
     <EditText
         android:id="@+id/title_input"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_below="@+id/title_create"
+        android:layout_below="@+id/tv_now"
         android:hint="@string/title_input"
         android:autofillHints="null"
         android:inputType="textImeMultiLine"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginLeft="10dp">
+        <requestFocus/>
     </EditText>
+    <EditText
+        android:id="@+id/edit_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_input"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:autofillHints="请输入内容"
+        android:gravity="left|top"
+        android:inputType="textMultiLine"
+        android:minLines="6"
+        tools:ignore="RtlHardcoded">
+
+    </EditText>
+
 </RelativeLayout>

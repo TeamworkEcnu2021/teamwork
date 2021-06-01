@@ -28,4 +28,8 @@
     <string name="done">DONE</string>
     <string name="title_input">请输入标题</string>
     <string name="event_create">出行事件</string>
+    <string name="create_note">+</string>
+    <string name="btn_confirm">确认</string>
+    <string name="btn_cancel">取消</string>
+    <string name="save_succ">保存成功！</string>
 </resources>
