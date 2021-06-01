@@ -33,6 +33,7 @@
         <meta-data
             android:name="com.baidu.lbsapi.APT_KEY"
             android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6"/>
+
         <activity android:name=".ui.diary.DairyContent"/>
         <activity android:name=".ui.diary.DairyList" />
         <activity android:name=".ui.diary.CreateDairy" />
@@ -54,7 +55,8 @@
         <activity android:name=".CreateEvent" />
         <service android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"/>
+            android:process=":remote">
+        </service>
     </application>
 
 </manifest>
