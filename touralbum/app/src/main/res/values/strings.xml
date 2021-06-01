@@ -27,4 +27,5 @@
     <string name="back"><![CDATA[< BACK]]></string>
     <string name="done">DONE</string>
     <string name="title_input">请输入标题</string>
+    <string name="event_create">出行事件</string>
 </resources>
