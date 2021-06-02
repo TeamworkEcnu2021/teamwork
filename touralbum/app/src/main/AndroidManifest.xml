@@ -33,11 +33,15 @@
         <meta-data
             android:name="com.baidu.lbsapi.APT_KEY"
             android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6"/>
-        <activity android:name=".ui.diary.DairyContent"/>
+
         <activity android:name=".ui.diary.DairyList" />
         <activity android:name=".ui.diary.CreateDairy" />
         <activity android:name=".albumContent.AlbumContent" />
         <activity android:name=".eventContent.EventContent" />
+        <activity
+            android:name="com.example.touralbum.weather.WeatherActivity"
+            android:label="@string/app_name">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -50,7 +54,8 @@
         <activity android:name=".CreateEvent" />
         <service android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"/>
+            android:process=":remote">
+        </service>
     </application>
 
 </manifest>
