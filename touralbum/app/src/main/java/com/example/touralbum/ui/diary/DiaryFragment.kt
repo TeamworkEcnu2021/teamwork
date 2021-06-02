@@ -12,20 +12,14 @@ import com.example.touralbum.R
 
 class DiaryFragment : Fragment() {
 
-    private lateinit var diaryViewModel: DiaryViewModel
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        diaryViewModel =
-                ViewModelProvider(this).get(DiaryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_diary, container, false)
         val textView: TextView = root.findViewById(R.id.text_discovery)
-        diaryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
