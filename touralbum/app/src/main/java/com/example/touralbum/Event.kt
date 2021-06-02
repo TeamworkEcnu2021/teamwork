@@ -35,3 +35,9 @@ class Event(var title:String, var date:String, var member:String, var dest:Strin
 "3",albumList[3].albumName
 ...
  */
+/*
+用events命名的shared preference存储
+"eventCount",event总数
+"1"，...
+“2”，...
+ */

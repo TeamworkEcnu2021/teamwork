@@ -2,6 +2,7 @@ package com.example.touralbum.eventContent
 
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -27,7 +28,6 @@ import java.io.File
 
 class EventContent : AppCompatActivity() {
 
-    private val albumList = ArrayList<Album>()
     private val funcBtnList = ArrayList<FuncBtn>()
     private lateinit var event : Event
     private lateinit var albumAdapter : AlbumAdapter
@@ -37,7 +37,7 @@ class EventContent : AppCompatActivity() {
         setContentView(R.layout.activity_event_content)
 
         //取事件数据
-        val eventTitle = intent.getStringExtra("eventTitle")
+        val eventTitle = intent.getStringExtra("eventName")
         event.getData(this,eventTitle!!)
 
         //标题栏
@@ -49,11 +49,10 @@ class EventContent : AppCompatActivity() {
         }
 
         //相册列表
-        initAlbum(event)
         val layoutManager = GridLayoutManager(this,2)
         val recyclerView : RecyclerView = findViewById(R.id.albumList)
         recyclerView.layoutManager = layoutManager
-        albumAdapter = AlbumAdapter(albumList,event.title)
+        albumAdapter = AlbumAdapter(event.albumList,event.title)
         recyclerView.adapter = albumAdapter
 
         //按钮列表
@@ -116,6 +115,26 @@ class EventContent : AppCompatActivity() {
                             if (file.exists()) {
                                 file.delete()
                             }
+                            val prefs = getSharedPreferences("events",Context.MODE_PRIVATE)
+                            val editor = prefs.edit()
+                            val count = prefs.getInt("eventCount",0)
+                            var i=1
+                            while(i<=count){
+                                val title = prefs.getString("$i","")
+                                if(title == event.title){
+                                    var j = i
+                                    while(j<count){
+                                        val t = prefs.getString("${j+1}","")
+                                        editor.putString("$j",t)
+                                        j++
+                                    }
+                                    editor.remove("$count")
+                                    editor.apply()
+                                    finish()
+                                }
+                                i++
+                            }
+                            editor.apply()
                             finish()
                         }
                         setNegativeButton("取消") { dialog, wgich -> }
@@ -137,26 +156,6 @@ class EventContent : AppCompatActivity() {
         // 把 drawable 内容画到画布中
         drawable.draw(canvas)
         return bitmap
-    }
-
-    private fun initAlbum(event : Event) {
-        for( album in event.albumList){
-            if(album.photoList.isEmpty()){
-                val drawable = ContextCompat.getDrawable(this, R.drawable.ic_baseline_photo_24)
-                val bitmap = drawableToBitmap(drawable!!)
-                albumList.add((Album(album.albumName,bitmap)))
-            }else {
-                val prefs = getSharedPreferences("${event.title}_${album.albumName}", Context.MODE_PRIVATE)
-                //第一步:取出字符串形式的Bitmap
-                val imageString = prefs.getString("1", "")
-                //第二步:利用Base64将字符串转换为ByteArrayInputStream
-                val byteArray: ByteArray = Base64.decode(imageString, Base64.DEFAULT)
-                val byteArrayInputStream = ByteArrayInputStream(byteArray)
-                //第三步:利用ByteArrayInputStream生成Bitmap
-                val bitmap = BitmapFactory.decodeStream(byteArrayInputStream)
-                albumList.add(Album(album.albumName, bitmap))
-            }
-        }
     }
 
     private fun initFuncBtn() {

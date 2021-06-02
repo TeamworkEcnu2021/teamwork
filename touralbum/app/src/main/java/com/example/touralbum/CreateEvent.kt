@@ -84,12 +84,18 @@ class CreateEvent : AppCompatActivity() {
 
     //创建并保存事件
     private fun saveAndCreate(event : Event){
-        val editor = getSharedPreferences("event_${event.title}", Context.MODE_PRIVATE).edit()
+        var editor = getSharedPreferences("event_${event.title}", Context.MODE_PRIVATE).edit()
         editor.putString("title", event.title)
         editor.putString("date",event.date)
         editor.putString("member",event.member)
         editor.putString("dest",event.dest)
         editor.putInt("albumCount",event.albumList.size)
+        editor.apply()
+        val prefs = getSharedPreferences("events",Context.MODE_PRIVATE)
+        editor = prefs.edit()
+        val count = prefs.getInt("eventCount",0)
+        editor.putInt("eventCount",count+1)
+        editor.putString("${count+1}",event.title)
         editor.apply()
     }
 }

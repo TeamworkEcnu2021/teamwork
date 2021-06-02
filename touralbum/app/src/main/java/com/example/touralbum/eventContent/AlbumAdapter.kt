@@ -24,7 +24,6 @@ class AlbumAdapter(val albumList: List<Album>,val eventName : String) :
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition
             val album = albumList[position]
-            Toast.makeText(parent.context, "打开了相册${album.albumName}", Toast.LENGTH_SHORT).show()
             val intent = Intent(parent.context, AlbumContent::class.java)
             intent.putExtra("albumName",album.albumName)
             intent.putExtra("eventName",eventName)
