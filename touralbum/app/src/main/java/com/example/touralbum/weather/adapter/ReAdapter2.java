@@ -5,12 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.example.touralbum.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.touralbum.weather.Bean.WeatherBean;
-import com.example.touralbum.weather.R;
 
 import java.util.List;
 

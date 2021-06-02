@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.touralbum.R;
 import com.example.touralbum.weather.Bean.WeatherBean;
-import com.example.touralbum.weather.R;
+
 
 import java.util.List;
 
