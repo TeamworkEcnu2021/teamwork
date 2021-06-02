@@ -30,7 +30,7 @@ import com.example.weather.Bean.WeatherBean;
 import com.example.weather.adapter.ReAdapter;
 import com.example.weather.adapter.ReAdapter2;
 import com.google.gson.Gson;
-
+import com.example.touralbum.R;
 import org.json.JSONObject;
 
 public class WeatherActivity extends AppCompatActivity {

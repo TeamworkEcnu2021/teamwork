@@ -99,7 +99,7 @@ public class DairyList extends AppCompatActivity {
         }
     }
     //重写返回按钮处理事件
-
+    /*
     @Override
     public void onBackPressed() {
         String title = "提示";
@@ -109,7 +109,7 @@ public class DairyList extends AppCompatActivity {
                 .setPositiveButton(R.string.btn_confirm, (dialog, which) -> finish())
                 .setNegativeButton(R.string.btn_cancel, (dialog, which) -> {
                 }).create().show();
-    }
+    }*/
     //给其他类提供dbHelper
     public static NoteDataBaseHelper getDbHelper(){
         return dbHelper;

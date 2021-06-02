@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#59B3B3B3">
+        android:background="#59E1E1E1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,11 +65,9 @@
                 android:id="@+id/trip_title"
                 android:layout_width="248dp"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
                 android:hint="@string/hint1"
                 android:inputType="text"
                 android:imeOptions="actionUnspecified">
-
             </EditText>
         </TableRow>
 
@@ -91,9 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:hint="@string/hint2"
-                android:inputType="date"
-                android:autofillHints=""
-                >
+                android:inputType="date">
 
             </EditText>
         </TableRow>
@@ -115,9 +111,8 @@
                 android:imeOptions="actionUnspecified"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:hint="请输入成员姓名"
-                android:inputType="date"
-                android:autofillHints="" />
+                android:hint="@string/hint4"
+                android:inputType="date" />
         </TableRow>
 
         <TableRow
@@ -135,11 +130,23 @@
                 android:id="@+id/location"
                 android:imeOptions="actionUnspecified"
                 android:hint="@string/hint3"
-                android:inputType="text"
-                android:autofillHints="">
+                android:inputType="text">
             </EditText>
+
         </TableRow>
     </TableLayout>
+    <ImageButton
+        android:id="@+id/get_loc"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:background="#0000"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="283dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/location_fill" />
     <ImageButton
         android:layout_width="240dp"
         android:layout_height="60dp"

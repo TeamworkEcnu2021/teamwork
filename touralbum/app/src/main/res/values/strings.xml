@@ -32,4 +32,5 @@
     <string name="btn_confirm">确认</string>
     <string name="btn_cancel">取消</string>
     <string name="save_succ">保存成功！</string>
+    <string name="hint4">请输入成员姓名</string>
 </resources>
