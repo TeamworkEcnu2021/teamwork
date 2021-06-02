@@ -8,7 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.touralbum.eventContent.EventContent
+import com.example.touralbum.ui.events.CreateEvent
+import com.example.touralbum.ui.events.eventContent.EventContent
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         when (requestCode) {
             0 -> if (resultCode == RESULT_OK) {
                 val newTitle = data?.getStringExtra("newEventTitle")
-                val intent = Intent(this,EventContent::class.java)
+                val intent = Intent(this, EventContent::class.java)
                 intent.putExtra("eventTitle",newTitle)
                 startActivity(intent)
             }//创建了新事件则根据事件名称进入事件内容界面

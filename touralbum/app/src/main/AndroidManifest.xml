@@ -28,7 +28,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Touralbum">
-        <activity android:name=".photoViewer.PhotoViewer" />
+        <activity android:name=".ui.events.photoViewer.PhotoViewer" />
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
             android:value="48ae76de3f"/>
@@ -38,10 +38,10 @@
 
         <activity android:name=".ui.diary.DairyList" />
         <activity android:name=".ui.diary.CreateDairy" />
-        <activity android:name=".albumContent.AlbumContent" />
-        <activity android:name=".eventContent.EventContent" />
+        <activity android:name=".ui.events.albumContent.AlbumContent" />
+        <activity android:name=".ui.events.eventContent.EventContent" />
         <activity
-            android:name="com.example.touralbum.weather.WeatherActivity"
+            android:name="com.example.touralbum.ui.weather.WeatherActivity"
             android:label="@string/app_name">
         </activity>
         <activity
@@ -53,38 +53,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateEvent" />
+        <activity android:name=".ui.events.CreateEvent" />
         <service android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote">
         </service>
         <activity
-            android:name="com.example.touralbum.activity_memo.MainActivity"
+            android:name="com.example.touralbum.ui.reminder.activity_memo.MainActivity"
             android:launchMode="singleTask"
             tools:ignore="Instantiatable">
 
         </activity>
         <activity
-            android:name="com.example.touralbum.activity_memo.EventDetailActivity"
+            android:name="com.example.touralbum.ui.reminder.activity_memo.EventDetailActivity"
             android:theme="@style/NoActionBarTheme"
             tools:ignore="Instantiatable" />
 
         <!-- <service android:name=".service.ClockService" /> -->
 
         <activity
-            android:name="com.example.touralbum.activity_memo.ClockActivity"
+            android:name="com.example.touralbum.ui.reminder.activity_memo.ClockActivity"
             android:launchMode="singleTask"
             android:theme="@style/FullScreen"
             tools:ignore="Instantiatable" />
 
-        <receiver android:name="com.example.touralbum.receiver_memo.ClockReceiver">
+        <receiver android:name="com.example.touralbum.ui.reminder.receiver_memo.ClockReceiver">
             <intent-filter android:priority="100">
                 <action android:name="com.liuzhengwei.memo.action.CLOCK_RECEIVER" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.example.touralbum.service_memo.ClockService"
+            android:name="com.example.touralbum.ui.reminder.service_memo.ClockService"
             android:enabled="true"
             android:exported="true" />
     </application>

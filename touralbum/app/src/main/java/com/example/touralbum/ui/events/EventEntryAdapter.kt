@@ -3,15 +3,10 @@ package com.example.touralbum.ui.events
 import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.touralbum.Event
 import com.example.touralbum.R
-import com.example.touralbum.albumContent.AlbumContent
-import com.example.touralbum.eventContent.Album
-import com.example.touralbum.eventContent.EventContent
+import com.example.touralbum.ui.events.eventContent.EventContent
 
 class EventEntryAdapter(val eventEntryList: List<Event>) :
     RecyclerView.Adapter<EventEntryAdapter.ViewHolder>() {
