@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.reminder.activity.ReminderActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ll_search"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@color/gray">
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/search_view"
+            android:iconifiedByDefault="true"
+            android:background="@color/white"
+            android:queryHint="@string/search_text">
+
+        </androidx.appcompat.widget.SearchView>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"
+        android:background="@drawable/bg_blue_memo"
+        android:layout_below="@id/ll_search"
+        android:layout_marginTop="6dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

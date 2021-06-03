@@ -58,6 +58,8 @@ dependencies {
     implementation files('libs/javapoet1.9.0.jar')
     implementation files('libs/protobufgensmap.jar')
     implementation files('libs/protobufjava2.3.0micro.jar')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.testng:testng:6.9.6'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'++
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -76,8 +78,10 @@ dependencies {
     //implementation 'com.android.support:support-v4:27.1.1'
     //androidTestImplementation 'com.android.support.test:runner:1.0.2'
     //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //implementation 'com.jakewharton:butterknife:8.8.1'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     //implementation 'com.android.support:recyclerview-v7:27.1.1'
     //implementation 'com.android.support:support-annotations:27.1.1'
     implementation 'androidx.annotation:annotation:1.2.0'

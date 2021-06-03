@@ -18,22 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.hide()
         //导航栏
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_events,R.id.navigation_diary,R.id.navigation_add,R.id.navigation_chat,R.id.navigation_account))
+                R.id.navigation_events,R.id.navigation_diary,R.id.navigation_weather))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        //创建事件按钮
-        val addevent : FloatingActionButton = findViewById(R.id.add_event)
-        addevent.setOnClickListener {
-            val intent = Intent(this, CreateEvent::class.java)
-            startActivityForResult(intent,0)
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

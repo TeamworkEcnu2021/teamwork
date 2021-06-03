@@ -12,18 +12,8 @@
         android:title="@string/title_diary" />
 
     <item
-        android:id="@+id/navigation_add"
-        android:icon="@drawable/ic_null"
-        android:title="@string/title_add"/>
-
-    <item
-        android:id="@+id/navigation_chat"
+        android:id="@+id/navigation_weather"
         android:icon="@drawable/ic_weather"
         android:title="@string/title_weather" />
-
-    <item
-        android:id="@+id/navigation_account"
-        android:icon="@drawable/ic_reminder"
-        android:title="@string/title_reminder" />
 
 </menu>

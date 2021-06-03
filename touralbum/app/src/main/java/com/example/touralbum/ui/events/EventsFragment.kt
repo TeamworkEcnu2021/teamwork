@@ -1,14 +1,15 @@
 package com.example.touralbum.ui.events
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.MenuItem.SHOW_AS_ACTION_ALWAYS
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touralbum.R
+import com.example.touralbum.ui.reminder.activity.ReminderActivity
 
 class EventsFragment : Fragment() {
 
@@ -44,5 +45,30 @@ class EventsFragment : Fragment() {
             eventEntryList.add(event)
             i++
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.add("addEvent").setShowAsAction(SHOW_AS_ACTION_ALWAYS)
+        menu.add("reminder").setShowAsAction(SHOW_AS_ACTION_ALWAYS)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.add_event -> {
+                val intent = Intent(activity, CreateEvent::class.java)
+                startActivityForResult(intent,0)
+            }
+            R.id.reminder -> {
+                val intent = Intent(activity, ReminderActivity::class.java)
+                startActivityForResult(intent,2)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

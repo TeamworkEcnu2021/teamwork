@@ -9,29 +9,18 @@
         android:id="@+id/navigation_events"
         android:name="com.example.touralbum.ui.events.EventsFragment"
         android:label="@string/title_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/activity_event_list" />
 
     <fragment
         android:id="@+id/navigation_diary"
         android:name="com.example.touralbum.ui.diary.DiaryFragment"
         android:label="@string/title_diary"
-        tools:layout="@layout/fragment_diary" />
+        tools:layout="@layout/fragment_dairy_list" />
 
     <fragment
-        android:id="@+id/navigation_add"
-        android:name="com.example.touralbum.ui.add.AddFragment"
-        android:label="@string/title_add"
-        tools:layout="@layout/fragment_add" />
-
-    <fragment
-        android:id="@+id/navigation_chat"
+        android:id="@+id/navigation_weather"
         android:name="com.example.touralbum.ui.weather.WeatherFragment"
         android:label="@string/title_weather"
-        tools:layout="@layout/fragment_weather" />
+        tools:layout="@layout/activity_weather" />
 
-    <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.example.touralbum.ui.reminder.ReminderFragment"
-        android:label="@string/title_reminder"
-        tools:layout="@layout/fragment_reminder" />
 </navigation>

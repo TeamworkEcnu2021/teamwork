@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -35,8 +36,6 @@
         <meta-data
             android:name="com.baidu.lbsapi.APT_KEY"
             android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6"/>
-
-        <activity android:name=".ui.diary.DairyList" />
         <activity android:name=".ui.diary.CreateDairy" />
         <activity android:name=".ui.events.albumContent.AlbumContent" />
         <activity android:name=".ui.events.eventContent.EventContent" />
@@ -55,32 +54,32 @@
             android:process=":remote">
         </service>
         <activity
-            android:name="com.example.touralbum.ui.reminder.activity_memo.MainActivity"
+            android:name="com.example.touralbum.ui.reminder.activity.ReminderActivity"
             android:launchMode="singleTask"
             tools:ignore="Instantiatable">
 
         </activity>
         <activity
-            android:name="com.example.touralbum.ui.reminder.activity_memo.EventDetailActivity"
+            android:name="com.example.touralbum.ui.reminder.activity.EventDetailActivity"
             android:theme="@style/NoActionBarTheme"
             tools:ignore="Instantiatable" />
 
         <!-- <service android:name=".service.ClockService" /> -->
 
         <activity
-            android:name="com.example.touralbum.ui.reminder.activity_memo.ClockActivity"
+            android:name="com.example.touralbum.ui.reminder.activity.ClockActivity"
             android:launchMode="singleTask"
             android:theme="@style/FullScreen"
             tools:ignore="Instantiatable" />
 
-        <receiver android:name="com.example.touralbum.ui.reminder.receiver_memo.ClockReceiver">
+        <receiver android:name="com.example.touralbum.ui.reminder.receiver.ClockReceiver">
             <intent-filter android:priority="100">
                 <action android:name="com.liuzhengwei.memo.action.CLOCK_RECEIVER" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.example.touralbum.ui.reminder.service_memo.ClockService"
+            android:name="com.example.touralbum.ui.reminder.service.ClockService"
             android:enabled="true"
             android:exported="true" />
     </application>

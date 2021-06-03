@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.diary.DiaryFragment"
     android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/back_ward"
-            android:text="@string/backward"
-            android:textSize="25sp"
-            android:textColor="#0076FF"
-            android:background="#0000"/>
-        <TextView
-            android:id="@+id/text_v"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/tour_create"
-            android:gravity="center"
-            android:textSize="22sp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/fab"
-            android:text="@string/create_note"
-            android:layout_alignParentEnd="true"
-            android:textSize="25sp"
-            android:textColor="#0076FF"
-            android:background="#0000"
-            android:layout_marginEnd="5dp"/>
-    </RelativeLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_diary_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#59B3B3B3"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/diary_list_menu"
+        app:navigationIcon="@drawable/ic_null"
+        app:title="旅行日记"
+        app:titleMarginStart="90dp"
+        app:titleTextColor="#575757" />
+
     <ListView
         android:id="@+id/note_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </ListView>
-</LinearLayout>
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_diary_list" />
+</androidx.constraintlayout.widget.ConstraintLayout>
