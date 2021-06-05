@@ -31,6 +31,9 @@
         android:sharedUserId="android.uid.system"
         android:theme="@style/Theme.Touralbum"
         android:networkSecurityConfig="@xml/network_security_config" >
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <activity android:name=".ui.events.photoViewer.PhotoViewer" />
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
