@@ -14,7 +14,7 @@ import com.example.touralbum.R
 import com.example.touralbum.ui.reminder.activity.ReminderActivity
 
 
-public class EventsFragment : Fragment() {
+class EventsFragment : Fragment() {
 
     private lateinit var eventEntryAdapter: EventEntryAdapter
     private val eventEntryList = ArrayList<Event>()

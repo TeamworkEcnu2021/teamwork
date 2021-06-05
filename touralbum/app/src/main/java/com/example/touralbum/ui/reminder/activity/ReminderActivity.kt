@@ -3,13 +3,15 @@ package com.example.touralbum.ui.reminder.activity
 import android.app.PendingIntent
 import android.content.DialogInterface
 import android.content.Intent
-import android.os.*
-import android.view.*
-import android.widget.*
+import android.os.Message
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
 import com.example.touralbum.R
 import com.example.touralbum.ui.reminder.base.BaseActivity
 import com.example.touralbum.ui.reminder.base.BaseHandler
@@ -27,35 +29,28 @@ import com.example.touralbum.ui.reminder.util.ToastUtil
 import java.util.*
 
 class ReminderActivity : BaseActivity(), HandlerResultCallBack {
-    @kotlin.jvm.JvmField
-    @BindView(R.id.recycler_view)
-    var mRecyclerView: RecyclerView? = null
 
-    @kotlin.jvm.JvmField
-    @BindView(R.id.search_view)
-    var mSearchView: SearchView? = null
+    private var mRecyclerView: RecyclerView = findViewById(R.id.recycler_view)
+    private var mSearchView: SearchView = findViewById(R.id.search_view)
     private var mAdapter: EventRecyclerViewAdapter? = null
     private val mEventManger: EventManager = EventManager.instance
     private val mClockManager: ClockManager = ClockManager.instance
     private val mBaseHandler = BaseHandler(this)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun initView() {
         mAdapter = EventRecyclerViewAdapter(this)
-        val params = mSearchView!!.layoutParams as LinearLayout.LayoutParams
+        val params = mSearchView.layoutParams as LinearLayout.LayoutParams
         //将文字内容略微下移，SearchView  bug
         params.bottomMargin = -3
-        mSearchView!!.layoutParams = params
-        mSearchView!!.onActionViewExpanded()
+        mSearchView.layoutParams = params
+        mSearchView.onActionViewExpanded()
         initSearchView()
     }
 
     private fun initSearchView() {
         //一处searchView进入屏幕时候的焦点
-        mSearchView!!.clearFocus()
-        val aClass: Class<out SearchView> = mSearchView!!.javaClass
+        mSearchView.clearFocus()
+        val aClass: Class<out SearchView> = mSearchView.javaClass
         try {
             //去掉SearchView自带的下划线
             val mSearchPlate = aClass.getDeclaredField("mSearchPlate")
@@ -69,20 +64,12 @@ class ReminderActivity : BaseActivity(), HandlerResultCallBack {
         AppUtil.hideSoftInput(this, mSearchView)
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
     override fun initData() {
         //设置数据源，适配器等等
         mAdapter?.databases = mEventManger.findAll()
-        mRecyclerView!!.adapter = mAdapter
-        mRecyclerView!!.layoutManager = LinearLayoutManager(this)
-        mRecyclerView!!.addItemDecoration(
+        mRecyclerView.adapter = mAdapter
+        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        mRecyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
@@ -92,7 +79,7 @@ class ReminderActivity : BaseActivity(), HandlerResultCallBack {
 
     override fun setListener() {
         mAdapter!!.setOnItemClickListener(mOnItemClickListener)
-        mSearchView!!.setOnQueryTextListener(mQueryListener)
+        mSearchView.setOnQueryTextListener(mQueryListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -105,12 +92,12 @@ class ReminderActivity : BaseActivity(), HandlerResultCallBack {
         if (item.itemId == R.id.menu_add) {
             val intent = Intent()
             intent.setClass(this, EventDetailActivity::class.java)
-            intent.putExtra(EventDetailActivity.Companion.EXTRA_IS_ADD_EVENT, true)
+            intent.putExtra(EventDetailActivity.EXTRA_IS_ADD_EVENT, true)
             startActivity(intent)
         } else if (item.itemId == R.id.menu_delete) {
             if (mAdapter!!.isDeleteMode) {
                 //删除数据
-                if (mAdapter!!.selectedEventIds.size == 0) {
+                if (mAdapter!!.selectedEventIds.isEmpty()) {
                     ToastUtil.showToastShort(R.string.no_event_selected_msg)
                 } else {
                     val msg =
@@ -133,9 +120,9 @@ class ReminderActivity : BaseActivity(), HandlerResultCallBack {
                     //跳屏，此时为查看详情，不是编辑状态
                     val intent = Intent()
                     intent.setClass(view!!.context, EventDetailActivity::class.java)
-                    intent.putExtra(EventDetailActivity.Companion.EXTRA_IS_EDIT_EVENT, false)
+                    intent.putExtra(EventDetailActivity.EXTRA_IS_EDIT_EVENT, false)
                     intent.putExtra(
-                        EventDetailActivity.Companion.EXTRA_EVENT_DATA,
+                        EventDetailActivity.EXTRA_EVENT_DATA,
                         mAdapter!!.databases?.get(position)
                     )
                     startActivity(intent)
@@ -207,7 +194,7 @@ class ReminderActivity : BaseActivity(), HandlerResultCallBack {
         val pendingIntents: MutableList<PendingIntent> = ArrayList()
         for (id in ids!!) {
             val intent = Intent()
-            intent.putExtra(ClockService.Companion.EXTRA_EVENT_ID, id)
+            intent.putExtra(ClockService.EXTRA_EVENT_ID, id)
             intent.setClass(this, ClockService::class.java)
             pendingIntents.add(
                 PendingIntent.getService(
