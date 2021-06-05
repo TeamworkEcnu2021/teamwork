@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:hint="@string/hint4"
-                android:inputType="date" />
+                android:inputType="text" />
         </TableRow>
 
         <TableRow

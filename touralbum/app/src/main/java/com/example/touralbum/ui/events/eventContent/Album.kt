@@ -35,7 +35,7 @@ class Album(var albumName:String, var surfaceImage : Bitmap) {
                 this.photoList.add(Photo(photoImage))
                 i++
             }
-            this.surfaceImage = this.photoList[1].image
+            this.surfaceImage = this.photoList[0].image
         }
     }
 

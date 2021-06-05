@@ -1,70 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.diary.CreateDairy">
+
     <TextView
+        android:id="@+id/title_create"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/title_create"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/back_to_dairy"
-        android:text="@string/back"
-        android:textSize="18sp"
-        android:background="#0000"
-        android:layout_marginTop="3dp"
-        android:textColor="#0076FF" />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dairy_done"
-        android:text="@string/done"
-        android:textColor="#0076FF"
-        android:textSize="18sp"
-        android:background="#0000"
         android:layout_marginTop="3dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:background="#0000"
+        android:text="@string/back"
+        android:textColor="#B3B3B3"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dairy_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="5dp"
-        tools:ignore="RelativeOverlap"/>
+        android:background="#0000"
+        android:text="@string/done"
+        android:textColor="#B3B3B3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RelativeOverlap" />
+
     <TextView
+        android:id="@+id/tv_now"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:id="@+id/tv_now"
-        android:layout_below="@id/title_create"
         android:background="#9CE5F4FF"
-        android:textAlignment="textEnd"
         android:gravity="end|center_vertical"
-        android:paddingEnd="8dp"/>
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_create" />
+
     <EditText
         android:id="@+id/title_input"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_below="@+id/tv_now"
-        android:hint="@string/title_input"
-        android:autofillHints="null"
-        android:inputType="textImeMultiLine"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
-        <requestFocus/>
+        android:autofillHints="null"
+        android:hint="@string/title_input"
+        android:inputType="textImeMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_now">
+
+        <requestFocus />
     </EditText>
+
     <EditText
         android:id="@+id/edit_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_input"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="3dp"
+        android:layout_marginRight="10dp"
         android:autofillHints="请输入内容"
         android:gravity="left|top"
         android:inputType="textMultiLine"
         android:minLines="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_input"
         tools:ignore="RtlHardcoded">
 
     </EditText>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

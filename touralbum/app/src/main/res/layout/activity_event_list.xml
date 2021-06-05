@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Touralbum"
     tools:context=".ui.events.EventsFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,7 +20,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/event_list_menu"
         app:navigationIcon="@drawable/ic_null"
         app:title="出行事件"
         app:titleMarginStart="90dp"

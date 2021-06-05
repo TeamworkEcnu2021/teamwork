@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.touralbum"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
+        dataBinding{
+            enabled(true)
+        }
     }
 
     buildTypes {
@@ -31,6 +34,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
     }
     sourceSets{
         main{

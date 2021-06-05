@@ -18,7 +18,7 @@ class AlbumAdapter(val albumList: List<Album>, val eventName : String) :
         val albumName: TextView = view.findViewById(R.id.albumName)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = View.inflate(parent.context, R.layout.album_item,null)
+        val view = View.inflate(parent.context, R.layout.item_album,null)
         val viewHolder = ViewHolder(view)
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition

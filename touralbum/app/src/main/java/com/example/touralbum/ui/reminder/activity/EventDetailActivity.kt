@@ -148,7 +148,7 @@ class EventDetailActivity : BaseActivity() {
     }
 
     override val contentView: Int
-        get() = R.layout.activity_event_detail_memo
+        get() = R.layout.memo_activity_event_detail
 
     /**
      * 弹出时间选择器，选择闹钟执行时间

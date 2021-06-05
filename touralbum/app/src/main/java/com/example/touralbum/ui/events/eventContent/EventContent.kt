@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.GridView
@@ -25,16 +26,18 @@ import java.io.File
 class EventContent : AppCompatActivity() {
 
     private val funcBtnList = ArrayList<FuncBtn>()
-    private lateinit var event : Event
+    var event = Event("","","","")
     private lateinit var albumAdapter : AlbumAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_content)
+        Log.d("d","事件内容活动")
 
         //取事件数据
         val eventTitle = intent.getStringExtra("eventName")
         event.getData(this,eventTitle!!)
+        Log.d("d","获取事件数据 ${event.title} ${event.date} ${event.member} ${event.dest} ${event.albumList.size}")
 
         //标题栏
         supportActionBar?.hide()
@@ -50,12 +53,14 @@ class EventContent : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         albumAdapter = AlbumAdapter(event.albumList,event.title)
         recyclerView.adapter = albumAdapter
+        Log.d("d","设置数据适配器，加载相册列表")
 
         //按钮列表
         initFuncBtn()
         val gridView :GridView = findViewById(R.id.option_button)
         val funcBtnAdapter = FuncBtnAdapter(this,funcBtnList)
         gridView.adapter = funcBtnAdapter
+        Log.d("d","设置数据适配器，加载功能按钮")
         gridView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             when (position) {
                 0 -> {//事件信息
@@ -64,25 +69,32 @@ class EventContent : AppCompatActivity() {
                         setTitle("事件信息")
                         setMessage("title: ${event.title}\ndate: ${event.date}\nmembers: ${event.member}\ndestination: ${event.dest}")
                         setPositiveButton("确定") { dialog, which -> }
-                    }
+                    }.show()
+                    Log.d("d","展示事件信息")
                 }
                 1 -> {//创建新相册
                     val editText = EditText(this)
                     val inputDialog = AlertDialog.Builder(this)
                     inputDialog.setTitle("请输入新相册名").setView(editText)
+                    Log.d("d","创建新相册，输入相册名")
                     inputDialog.setPositiveButton("确定") { dialog, which ->
                         val newName = editText.text.toString()
-                        val drawable =
-                            ContextCompat.getDrawable(this, R.drawable.ic_baseline_photo_24)
+                        val drawable = ContextCompat.getDrawable(this, R.drawable.ic_baseline_photo_24)
                         event.albumList.add(Album(newName, drawableToBitmap(drawable!!)))
-                        val prefs =
-                            getSharedPreferences("${event.title}_${newName}", Context.MODE_PRIVATE)
-                        val editor = prefs.edit()
+                        var prefs = getSharedPreferences("${event.title}_${newName}", Context.MODE_PRIVATE)
+                        var editor = prefs.edit()
                         editor.putString("albumName", newName)
                         editor.putInt("photoCount", 0)
                         editor.apply()
+                        prefs = getSharedPreferences("event_${event.title}",Context.MODE_PRIVATE)
+                        editor = prefs.edit()
+                        val count = prefs.getInt("albumCount",0)
+                        editor.putInt("albumCount",count+1)
+                        editor.putString("${count+1}",event.title)
+                        editor.apply()
                         albumAdapter.notifyDataSetChanged()
                         Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show()
+                        Log.d("d","确定，")
                     }
                     inputDialog.setNegativeButton("取消") { dialog, which ->
                         Toast.makeText(this, "取消了", Toast.LENGTH_SHORT).show()
@@ -100,20 +112,21 @@ class EventContent : AppCompatActivity() {
                         setMessage("删除之后不可恢复")
                         setPositiveButton("确定") { dialog, wgich ->
                             for (album in event.albumList) {
-                                val file =
-                                    File("/data/data/${packageName}/shared_prefs/${event.title}_${album.albumName}")
+                                val file = File("/data/data/${packageName}/shared_prefs/${event.title}_${album.albumName}.xml")
                                 if (file.exists()) {
                                     file.delete()
-                                }
+                                    Log.d("d","获取到文件路径，删除相册文件")
+                                }else Log.d("d","获取相册文件失败")
                             }
-                            val file =
-                                File("/data/data/${packageName}/shared_prefs/event_${event.title}")
+                            val file = File("/data/data/${packageName}/shared_prefs/event_${event.title}.xml")
                             if (file.exists()) {
                                 file.delete()
-                            }
+                                Log.d("d","获取到文件路径，删除事件文件")
+                            }else Log.d("d","获取事件文件失败")
                             val prefs = getSharedPreferences("events",Context.MODE_PRIVATE)
                             val editor = prefs.edit()
                             val count = prefs.getInt("eventCount",0)
+                            if(count != 0)editor.putInt("eventCount",count-1)
                             var i=1
                             while(i<=count){
                                 val title = prefs.getString("$i","")
@@ -134,10 +147,18 @@ class EventContent : AppCompatActivity() {
                             finish()
                         }
                         setNegativeButton("取消") { dialog, wgich -> }
-                    }
+                    }.show()
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        event.albumList.clear()
+        val name = event.title
+        event.getData(this,name)
+        albumAdapter.notifyDataSetChanged()
+        super.onResume()
     }
 
     private fun drawableToBitmap(drawable: Drawable): Bitmap {

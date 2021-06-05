@@ -39,7 +39,7 @@ class EventRecyclerViewAdapter(private val mContext: Context) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_memo_layout_memo, parent, false)
+            .inflate(R.layout.memo_item_memo_layout, parent, false)
         return EventViewHolder(itemView)
     }
 

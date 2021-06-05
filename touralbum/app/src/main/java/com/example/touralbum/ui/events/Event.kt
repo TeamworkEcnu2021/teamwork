@@ -1,6 +1,12 @@
 package com.example.touralbum.ui.events
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.PixelFormat
+import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
+import com.example.touralbum.R
 import com.example.touralbum.ui.events.eventContent.Album
 
 class Event(var title:String, var date:String, var member:String, var dest:String) {
@@ -15,12 +21,28 @@ class Event(var title:String, var date:String, var member:String, var dest:Strin
         val count = prefs.getInt("albumCount",0)
         var i = 1
         while(i<=count){
-            var albumName = prefs.getString("$i","").toString()
-            lateinit var album : Album
+            val albumName = prefs.getString("$i","").toString()
+            val drawable = ContextCompat.getDrawable(context, R.drawable.ic_baseline_photo_24)
+            val surfaceImage = drawableToBitmap(drawable!!)
+            val album = Album(albumName,surfaceImage)
             album.getData(context,eventName,albumName)
             this.albumList.add(album)
             i++
         }
+    }
+
+    private fun drawableToBitmap(drawable: Drawable): Bitmap {
+        val w = drawable.intrinsicWidth
+        val h = drawable.intrinsicHeight
+        // 取 drawable 的颜色格式
+        val config = if (drawable.opacity != PixelFormat.OPAQUE) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565
+        val bitmap = Bitmap.createBitmap(w, h, config)
+        //建立对应 bitmap 的画布
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, w, h)
+        // 把 drawable 内容画到画布中
+        drawable.draw(canvas)
+        return bitmap
     }
 }
 /*

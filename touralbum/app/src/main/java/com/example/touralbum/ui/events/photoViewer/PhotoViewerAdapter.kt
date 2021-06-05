@@ -15,7 +15,9 @@ class PhotoViewerAdapter(private val photoList: List<Photo>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = View.inflate(parent.context, R.layout.photo_item, null)
+        val view = View.inflate(parent.context, R.layout.item_photo, null)
+        val lp = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+        view.layoutParams = lp
         return ViewHolder(view)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -23,7 +23,7 @@
     <GridView
         android:id="@+id/option_button"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="230dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_back"
         app:title="@string/app_name"
-        app:titleMarginStart="90dp"
+        app:titleMarginStart="100dp"
         app:titleTextColor="#575757"
         android:focusable="true" />
 

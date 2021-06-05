@@ -18,7 +18,7 @@ class EventEntryAdapter(val eventEntryList: List<Event>) :
         val eventDest: TextView = view.findViewById(R.id.event_entry_dest)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = View.inflate(parent.context, R.layout.event_entry_item,null)
+        val view = View.inflate(parent.context, R.layout.item_event_entry,null)
         val viewHolder = ViewHolder(view)
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition

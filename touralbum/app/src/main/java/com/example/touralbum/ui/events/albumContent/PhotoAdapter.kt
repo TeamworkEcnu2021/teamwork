@@ -15,7 +15,7 @@ class PhotoAdapter(var photoList:List<Photo>, val eventName:String, val albumNam
         val photoImage: ImageView = view.findViewById(R.id.photoImage)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = View.inflate(parent.context, R.layout.photo_item,null)
+        val view = View.inflate(parent.context, R.layout.item_photo,null)
         val viewHolder = ViewHolder(view)
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition
@@ -29,6 +29,11 @@ class PhotoAdapter(var photoList:List<Photo>, val eventName:String, val albumNam
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val photo = photoList[position]
+        val y = photo.image.height
+        val x = photo.image.width
+        holder.photoImage.maxHeight = y
+        val maxx = holder.photoImage.maxWidth
+        holder.photoImage.maxWidth = maxx
         holder.photoImage.setImageBitmap(photo.image)
     }
     override fun getItemCount() = photoList.size

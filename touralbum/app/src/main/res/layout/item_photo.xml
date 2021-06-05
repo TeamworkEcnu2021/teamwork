@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="5dp">
+    android:layout_margin="20dp">
     
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
         android:id="@+id/photoImage"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
         android:contentDescription="photo in album"
         tools:ignore="HardcodedText" />
 

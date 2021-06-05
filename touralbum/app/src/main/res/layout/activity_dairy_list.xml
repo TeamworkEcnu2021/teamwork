@@ -19,13 +19,12 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/diary_list_menu"
         app:navigationIcon="@drawable/ic_null"
         app:title="旅行日记"
         app:titleMarginStart="90dp"
         app:titleTextColor="#575757" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/note_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"

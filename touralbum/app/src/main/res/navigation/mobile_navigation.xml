@@ -15,7 +15,7 @@
         android:id="@+id/navigation_diary"
         android:name="com.example.touralbum.ui.diary.DiaryFragment"
         android:label="@string/title_diary"
-        tools:layout="@layout/fragment_dairy_list" />
+        tools:layout="@layout/activity_dairy_list" />
 
     <fragment
         android:id="@+id/navigation_weather"

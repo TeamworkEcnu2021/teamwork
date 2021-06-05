@@ -24,7 +24,7 @@ class FuncBtnAdapter(var context: Context,val FuncBtnList: List<FuncBtn>) : Base
 
         if(convertView == null){
             viewHolder = ViewHolder()
-            view = LayoutInflater.from(context).inflate(R.layout.func_btn_item,null)
+            view = LayoutInflater.from(context).inflate(R.layout.item_func_btn,null)
             viewHolder.FuncBtnImage = view.findViewById(R.id.btn_image)
             viewHolder.FuncBtnName = view.findViewById(R.id.btn_name)
             viewHolder.cLayout = view.findViewById(R.id.func_btn_item)
@@ -34,7 +34,7 @@ class FuncBtnAdapter(var context: Context,val FuncBtnList: List<FuncBtn>) : Base
             viewHolder = view.tag as ViewHolder
         }
 
-        viewHolder.FuncBtnName.setText(FuncBtnList[position].btn_name)
+        viewHolder.FuncBtnName.text = FuncBtnList[position].btn_name
         viewHolder.FuncBtnImage.setImageResource(FuncBtnList[position].btn_image)
 
         return view!!

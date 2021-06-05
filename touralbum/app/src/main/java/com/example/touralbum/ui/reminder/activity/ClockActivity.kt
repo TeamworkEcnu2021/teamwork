@@ -29,7 +29,7 @@ class ClockActivity : BaseActivity() {
         val pattern = longArrayOf(1500, 1000)
         mVibrator!!.vibrate(pattern, 0)
         //获取自定义布局
-        val inflate = LayoutInflater.from(this).inflate(R.layout.dialog_alarm_layout_memo, null)
+        val inflate = LayoutInflater.from(this).inflate(R.layout.memo_dialog_alarm_layout, null)
         val textView = inflate.findViewById<TextView>(R.id.tv_event)
         textView.text =
             String.format(getString(R.string.clock_event_msg_template), event!!.getmTitle())
