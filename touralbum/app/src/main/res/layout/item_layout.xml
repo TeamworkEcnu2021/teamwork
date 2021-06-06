@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="4dp"
     android:padding="5dp"
     android:background="@drawable/side_shadow"
     android:orientation="horizontal">
@@ -10,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="vertical"
-        android:layout_marginStart="8dp"
         tools:ignore="UselessParent">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:id="@+id/item_note_title"
             android:layout_weight="1.5"
             android:textSize="22sp"
@@ -26,7 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:textColor="#656565"
             android:gravity="center_vertical"
             android:singleLine="true"/>
     </LinearLayout>

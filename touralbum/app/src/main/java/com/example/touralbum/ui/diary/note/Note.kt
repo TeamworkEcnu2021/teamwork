@@ -4,13 +4,14 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import com.example.touralbum.ui.diary.note.NoteDataBaseHelper.TableCreateInterface
 import java.util.*
 
 class Note  //私有化构造方法
 private constructor() : TableCreateInterface {
     override fun onCreate(db: SQLiteDatabase) {
-        val sql = ("CREATE TABLE "
+        var sql = ("CREATE TABLE "
                 + tableName
                 + " (  "
                 + "_id integer primary key autoincrement, "
@@ -24,7 +25,7 @@ private constructor() : TableCreateInterface {
     //实现表的更新
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         if (oldVersion < newVersion) {
-            val sql = "DROP TABLE IF EXISTS " + tableName
+            val sql = "DROP TABLE IF EXISTS $tableName"
             db.execSQL(sql)
             onCreate(db)
         }
@@ -46,9 +47,10 @@ private constructor() : TableCreateInterface {
 
         //插入
         fun insertNote(dbHelper: NoteDataBaseHelper?, userValues: ContentValues?) {
-            val db = dbHelper!!.writableDatabase
+            var db = dbHelper!!.writableDatabase
             db.insert(tableName, null, userValues)
             db.close()
+            Log.d("Note","insertNote execute")
         }
 
         //删除一条笔记

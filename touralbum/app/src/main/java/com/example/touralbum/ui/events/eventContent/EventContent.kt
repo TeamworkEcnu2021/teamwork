@@ -8,10 +8,7 @@ import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
-import android.widget.AdapterView
-import android.widget.EditText
-import android.widget.GridView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -101,7 +98,8 @@ class EventContent : AppCompatActivity() {
                     }
                     inputDialog.show()
                 }
-                2 -> {//旅行日记
+                2 -> {//旅行日记\
+
                     Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
                     //todo 跳转到对应的日记页面
                 }
