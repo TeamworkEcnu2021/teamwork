@@ -61,4 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
+    override fun onBackPressed() {
+    }
 }

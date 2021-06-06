@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Touralbum" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Touralbum" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#575757</item>
         <item name="colorPrimaryDark">#6E6E6E</item>

@@ -124,6 +124,7 @@ class DiaryFragment : Fragment() {
         }
     }
 
+
     companion object {
         //重写返回按钮处理事件
         /*
@@ -137,6 +138,7 @@ class DiaryFragment : Fragment() {
                           .setNegativeButton(R.string.btn_cancel, (dialog, which) -> {
                           }).create().show();
               }*/
+
         //给其他类提供dbHelper
         lateinit var dbHelper: NoteDataBaseHelper
             private set
