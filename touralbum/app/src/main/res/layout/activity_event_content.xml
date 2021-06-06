@@ -37,7 +37,7 @@
         android:id="@+id/toolbar_event_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#59B3B3B3"
+        android:background="#46CAC9C9"
         android:clickable="true"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"

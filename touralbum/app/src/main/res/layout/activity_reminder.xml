@@ -14,15 +14,14 @@
         android:gravity="center_vertical"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
-        android:background="@color/gray">
+        android:background="#F5F5F5">
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:id="@+id/search_view"
             android:iconifiedByDefault="true"
-            android:background="@color/white"
+            android:background="#FFFFFF"
             android:queryHint="@string/search_text">
-
         </androidx.appcompat.widget.SearchView>
     </LinearLayout>
 
@@ -31,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"
-        android:background="@drawable/bg_blue_memo"
+        android:background="#F5F5F5"
+
         android:layout_below="@id/ll_search"
         android:layout_marginTop="6dp">
 
