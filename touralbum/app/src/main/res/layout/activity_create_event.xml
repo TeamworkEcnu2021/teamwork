@@ -137,25 +137,26 @@
     </TableLayout>
     <ImageButton
         android:id="@+id/get_loc"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentEnd="true"
         android:background="#0000"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="283dp"
+        android:layout_marginTop="350dp"
         android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
         android:src="@drawable/location_fill" />
     <ImageButton
-        android:layout_width="240dp"
+        android:layout_width="250dp"
         android:layout_height="60dp"
         android:id="@+id/create_btn"
         android:background="@mipmap/creating"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:contentDescription="@string/todo"/>
+        android:contentDescription="@string/todo"
+         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

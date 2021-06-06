@@ -46,11 +46,12 @@ class CreateEvent : AppCompatActivity() {
         } else {
             requestLocation()
         }
+        /*
         positionText.setOnEditorActionListener { v, actionId, event ->
             val triploc = v.text.toString()
             Toast.makeText(this, triploc, Toast.LENGTH_SHORT).show()
             false
-        }
+        }*/
 
         //返回键
         val backWard = findViewById<ImageButton>(R.id.bt_back)
