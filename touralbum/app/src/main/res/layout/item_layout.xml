@@ -3,10 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="7dp"
-    android:layout_marginBottom="4dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:padding="5dp"
     android:background="@drawable/side_shadow"
     android:orientation="horizontal">
@@ -24,7 +22,7 @@
             android:id="@+id/item_note_title"
             android:layout_weight="1.5"
             android:textSize="22sp"
-            android:textColor="#164356"
+            android:textColor="#464646"
             android:gravity="center_vertical"
             android:singleLine="true"/>
         <TextView
@@ -33,8 +31,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
-            android:textSize="14sp"
-            android:textColor="#656565"
+            android:textSize="13sp"
+            android:textColor="#6C6C6C"
             android:gravity="center_vertical"
             android:singleLine="true"/>
     </LinearLayout>

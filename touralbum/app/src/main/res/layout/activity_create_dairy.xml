@@ -10,7 +10,8 @@
     <TextView
         android:id="@+id/title_create"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
+        android:background="#2CCAC9C9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +22,7 @@
         android:layout_marginTop="3dp"
         android:background="#0000"
         android:text="@string/back"
-        android:textColor="#B3B3B3"
+        android:textColor="#97BA93"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +35,7 @@
         android:layout_marginEnd="5dp"
         android:background="#0000"
         android:text="@string/done"
-        android:textColor="#B3B3B3"
+        android:textColor="#97BA93"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +45,7 @@
         android:id="@+id/tv_now"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="#9CE5F4FF"
+        android:background="#36ACBDAA"
         android:gravity="end|center_vertical"
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
@@ -70,10 +71,12 @@
     <EditText
         android:id="@+id/edit_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
+        android:background="@null"
         android:autofillHints="请输入内容"
         android:gravity="left|top"
         android:inputType="textMultiLine"

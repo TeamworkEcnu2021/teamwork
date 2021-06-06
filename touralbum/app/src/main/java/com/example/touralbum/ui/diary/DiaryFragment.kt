@@ -21,6 +21,18 @@ class DiaryFragment : Fragment() {
     private lateinit var noteListView: RecyclerView
     private val noteList = ArrayList<NoteInfo>()
     private lateinit var mListAdapter: ListAdapter
+    //重写返回按钮处理事件
+    /*
+          @Override
+          public void onBackPressed() {
+              String title = "提示";
+              new AlertDialog.Builder(DairyList.this)
+                      .setTitle(title)
+                      .setMessage("确定要退出吗?")
+                      .setPositiveButton(R.string.btn_confirm, (dialog, which) -> finish())
+                      .setNegativeButton(R.string.btn_cancel, (dialog, which) -> {
+                      }).create().show();
+          }*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +49,19 @@ class DiaryFragment : Fragment() {
                     val intent = Intent(activity, CreateDairy::class.java)
                     startActivity(intent)
                 }
+            /*
+                R.id.back_to_dairy->{
+                    val title = "提示"
+                    AlertDialog.Builder(requireContext())
+                        .setTitle(title)
+                        .setMessage("确定要退出吗?")
+                        .setPositiveButton(R.string.btn_confirm) {
+                            dialog: DialogInterface?, which: Int ->
+                            onDestroy()
+                        }
+                        .setNegativeButton(R.string.btn_cancel) { dialog: DialogInterface?, which: Int -> }
+                        .create().show()
+                }*/
             }
             true
         }
@@ -126,18 +151,6 @@ class DiaryFragment : Fragment() {
 
 
     companion object {
-        //重写返回按钮处理事件
-        /*
-              @Override
-              public void onBackPressed() {
-                  String title = "提示";
-                  new AlertDialog.Builder(DairyList.this)
-                          .setTitle(title)
-                          .setMessage("确定要退出吗?")
-                          .setPositiveButton(R.string.btn_confirm, (dialog, which) -> finish())
-                          .setNegativeButton(R.string.btn_cancel, (dialog, which) -> {
-                          }).create().show();
-              }*/
 
         //给其他类提供dbHelper
         lateinit var dbHelper: NoteDataBaseHelper
