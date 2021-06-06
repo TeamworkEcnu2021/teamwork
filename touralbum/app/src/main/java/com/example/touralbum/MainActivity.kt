@@ -3,12 +3,7 @@ package com.example.touralbum
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -16,9 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.touralbum.ui.events.eventContent.EventContent
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.touralbum.databinding.ActivityMainBinding
-import com.example.touralbum.ui.events.CreateEvent
-import com.example.touralbum.ui.reminder.activity.ReminderActivity
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 

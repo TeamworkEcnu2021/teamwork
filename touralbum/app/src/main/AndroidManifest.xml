@@ -2,45 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.touralbum">
-    <!-- 用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
-    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- 访问网络，网络定位需要上网 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
+        android:name="com.example.touralbum.ui.reminder.MemoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:sharedUserId="android.uid.system"
-        android:theme="@style/Theme.Touralbum"
-        android:networkSecurityConfig="@xml/network_security_config" >
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Touralbum">
         <activity android:name=".ui.events.photoViewer.PhotoViewer" />
+
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
-            android:value="48ae76de3f"/>
+            android:value="48ae76de3f" />
         <meta-data
             android:name="com.baidu.lbsapi.APT_KEY"
-            android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6"/>
+            android:value="MH3mCTalZgXfX31CXkdzCQMIsMmmAHG6" />
+
         <activity android:name=".ui.diary.CreateDairy" />
         <activity android:name=".ui.events.albumContent.AlbumContent" />
         <activity android:name=".ui.events.eventContent.EventContent" />
@@ -54,37 +50,34 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.events.CreateEvent" />
-        <service android:name="com.baidu.location.f"
+
+        <service
+            android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote">
-        </service>
+            android:process=":remote" />
+
         <activity
-            android:name="com.example.touralbum.ui.reminder.activity.ReminderActivity"
+            android:name=".ui.reminder.activity.ReminderActivity"
             android:launchMode="singleTask"
-            tools:ignore="Instantiatable">
-
-        </activity>
-        <activity
-            android:name="com.example.touralbum.ui.reminder.activity.EventDetailActivity"
-            android:theme="@style/NoActionBarTheme"
             tools:ignore="Instantiatable" />
-
-        <!-- <service android:name=".service.ClockService" /> -->
-
         <activity
-            android:name="com.example.touralbum.ui.reminder.activity.ClockActivity"
+            android:name=".ui.reminder.activity.EventDetailActivity"
+            android:theme="@style/NoActionBarTheme"
+            tools:ignore="Instantiatable" /> <!-- <service android:name=".service.ClockService" /> -->
+        <activity
+            android:name=".ui.reminder.activity.ClockActivity"
             android:launchMode="singleTask"
             android:theme="@style/FullScreen"
             tools:ignore="Instantiatable" />
 
-        <receiver android:name="com.example.touralbum.ui.reminder.receiver.ClockReceiver">
+        <receiver android:name=".ui.reminder.receiver.ClockReceiver">
             <intent-filter android:priority="100">
                 <action android:name="com.liuzhengwei.memo.action.CLOCK_RECEIVER" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.example.touralbum.ui.reminder.service.ClockService"
+            android:name=".ui.reminder.service.ClockService"
             android:enabled="true"
             android:exported="true" />
     </application>
