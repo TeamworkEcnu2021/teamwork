@@ -11,7 +11,7 @@ import java.util.*
 class Note  //私有化构造方法
 private constructor() : TableCreateInterface {
     override fun onCreate(db: SQLiteDatabase) {
-        var sql = ("CREATE TABLE "
+        val sql = ("CREATE TABLE "
                 + tableName
                 + " (  "
                 + "_id integer primary key autoincrement, "
@@ -47,7 +47,7 @@ private constructor() : TableCreateInterface {
 
         //插入
         fun insertNote(dbHelper: NoteDataBaseHelper?, userValues: ContentValues?) {
-            var db = dbHelper!!.writableDatabase
+            val db = dbHelper!!.writableDatabase
             db.insert(tableName, null, userValues)
             db.close()
             Log.d("Note","insertNote execute")
