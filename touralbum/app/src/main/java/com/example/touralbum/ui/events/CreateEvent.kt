@@ -1,18 +1,30 @@
 package com.example.touralbum.ui.events
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import com.baidu.location.BDAbstractLocationListener
+import com.baidu.location.BDLocation
+import com.baidu.location.LocationClient
+import com.baidu.location.LocationClientOption
 import com.example.touralbum.R
 
 class CreateEvent : AppCompatActivity() {
+
+    private lateinit var mLocationClient: LocationClient
+    private val myListener = MyLocationListener()
+    private lateinit var positionText: EditText
+    private lateinit var btn_loc: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +33,24 @@ class CreateEvent : AppCompatActivity() {
 
         //标题栏
         supportActionBar?.hide()
+
+        //在使用SDK各组件之前先初始化context信息，传入ApplicationContext
+        //注意该方法要在setContextView之前实现
+        mLocationClient = LocationClient(applicationContext)
+        mLocationClient.registerLocationListener(myListener)
+        positionText = findViewById(R.id.location)
+        btn_loc = findViewById(R.id.get_loc)
+        //如果没有启动权限，就询问用户打开
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        } else {
+            requestLocation()
+        }
+        positionText.setOnEditorActionListener { v, actionId, event ->
+            val triploc = v.text.toString()
+            Toast.makeText(this, triploc, Toast.LENGTH_SHORT).show()
+            false
+        }
 
         //返回键
         val backWard = findViewById<ImageButton>(R.id.bt_back)
@@ -64,5 +94,54 @@ class CreateEvent : AppCompatActivity() {
         editor.putString("${count+1}",event.title)
         editor.apply()
         Log.d("d","把事件数据保存在名为event_事件名的sp中，将events中数量修改，并添加到最后")
+    }
+
+    private fun requestLocation() {
+        initLocation()
+        mLocationClient.start()
+    }
+
+    private fun initLocation() {
+        val option = LocationClientOption()
+        option.setCoorType("bd09ll")
+        option.locationMode = LocationClientOption.LocationMode.Device_Sensors
+        option.setScanSpan(5000)
+        option.isOpenGps = true
+        option.isLocationNotify = true
+        option.setIsNeedAddress(true)
+        option.setNeedNewVersionRgc(true)
+        mLocationClient.locOption = option
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String?>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1) {
+            for (result in grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    finish()
+                    return
+                }
+            }
+            requestLocation()
+        } else {
+            finish()
+        }
+    }
+
+    inner class MyLocationListener : BDAbstractLocationListener() {
+        override fun onReceiveLocation(bdLocation: BDLocation) {
+            runOnUiThread {
+                btn_loc.setOnClickListener { positionText.setText(bdLocation.addrStr) }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mLocationClient.stop()
     }
 }

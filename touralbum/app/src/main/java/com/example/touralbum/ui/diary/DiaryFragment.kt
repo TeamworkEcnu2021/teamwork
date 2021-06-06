@@ -11,6 +11,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touralbum.R
 import com.example.touralbum.ui.diary.note.*
@@ -60,7 +61,9 @@ class DiaryFragment : Fragment() {
 
     //初始化视图
     private fun initView(root:View) {
+        val layoutManager = GridLayoutManager(activity,1)
         noteListView = root.findViewById(R.id.note_list)
+        noteListView.layoutManager = layoutManager
         //获取noteList
         getNoteList()
         mListAdapter = ListAdapter(noteList)
@@ -103,6 +106,7 @@ class DiaryFragment : Fragment() {
 
     //从数据库中读取所有笔记，封装成List<NoteInfo>
     private fun getNoteList() {
+        noteList.clear()
         val allNotes: Cursor = Note.getAllNotes(dbHelper)
         allNotes.moveToFirst()
         while (!allNotes.isAfterLast) {

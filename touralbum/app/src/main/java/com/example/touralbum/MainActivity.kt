@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -27,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("d","主活动")
         supportActionBar?.hide()
+        // 隐藏标题栏
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 隐藏状态栏
+        //window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

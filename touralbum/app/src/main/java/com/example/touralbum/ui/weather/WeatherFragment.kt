@@ -1,5 +1,6 @@
 package com.example.touralbum.ui.weather
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.SharedPreferences
@@ -17,7 +18,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -58,6 +58,7 @@ class WeatherFragment : Fragment() {
     private lateinit var qiehuan: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
+    @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -147,77 +148,73 @@ class WeatherFragment : Fragment() {
      * 注意请将秘钥替换为：自己到京东万象申请秘钥
      * @param cityName 城市名称
      */
+    @SuppressLint("SetTextI18n")
     private fun selectWeather(cityName: String?) {
-        val jsonObject = JSONObject()
+        Log.d("d","城市：$cityName")
+        val jsonObject1 = JSONObject()
         val url =
-            "https://way.jd.com/he/freeweather?city=$cityName&appkey=1fea054bfd7426b48e50b2863fdc2bd2"
+            "https://way.jd.com/he/freeweather?city=$cityName&appkey=39eb6073d1a0250877579a294eed96e5"
         val requestQueue = Volley.newRequestQueue(requireActivity())
         val jsonObjectRequest =
-            JsonObjectRequest(Request.Method.GET, url, jsonObject, { jsonObject ->
+            JsonObjectRequest(Request.Method.GET, url, jsonObject1, { jsonObject ->
                 val gson = Gson()
                 weatherBean = gson.fromJson(jsonObject.toString(), WeatherBean::class.java)
-                if (weatherBean.result!!.heWeather5?.get(0)!!.status == "unknown location") {
+                Log.d("d","$weatherBean")
+                Log.d("d","${weatherBean.result}")
+                Log.d("d","${weatherBean.result?.heWeather5?.isEmpty()}")
+                //Log.d("d","${weatherBean.result?.heWeather5?.get(0)}")
+                //Log.d("d","${weatherBean.result?.heWeather5?.get(0)?.status}")
+                if (weatherBean.result!!.heWeather5[0].status == "unknown location") {
                     Toast.makeText(requireActivity(), "输入城市有误", Toast.LENGTH_SHORT).show()
                 } else {
-                    tv_zhunagtai.text = weatherBean.result!!.heWeather5!![0].now!!.cond!!.txt
-                    sheshidu.text = weatherBean.result!!.heWeather5!![0].now!!.tmp + "℃"
-                    fengxiang.text = weatherBean.result!!.heWeather5!![0].now!!.wind!!.dir
+                    tv_zhunagtai.text = weatherBean.result!!.heWeather5[0].now!!.cond!!.txt
+                    sheshidu.text = weatherBean.result!!.heWeather5[0].now!!.tmp + "℃"
+                    fengxiang.text = weatherBean.result!!.heWeather5[0].now!!.wind!!.dir
                     //根据天气状况 来判断图片
-                    if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "多云" || weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "阴") {
+                    if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "多云" || weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "阴") {
                         img_zhungkuang.setImageResource(R.mipmap.yin)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "晴") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "晴") {
                         img_zhungkuang.setImageResource(R.mipmap.qinglang)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "雨夹雪" || weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "小雪") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "雨夹雪" || weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "小雪") {
                         img_zhungkuang.setImageResource(R.mipmap.xiaoxue)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "小雨") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "小雨") {
                         img_zhungkuang.setImageResource(R.mipmap.xiaoyu)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "中雨" || weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "大雨") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "中雨" || weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "大雨") {
                         img_zhungkuang.setImageResource(R.mipmap.dayu)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "雷阵雨") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "雷阵雨") {
                         img_zhungkuang.setImageResource(R.mipmap.leizhenyu)
-                    } else if (weatherBean.result!!.heWeather5?.get(0)!!.now!!.cond!!.txt == "雾") {
+                    } else if (weatherBean.result!!.heWeather5[0].now!!.cond!!.txt == "雾") {
                         img_zhungkuang.setImageResource(R.mipmap.wu)
                     }
                     //3小时 recyclerView滑动适配
-                    val reAdapter = weatherBean.result!!.heWeather5?.get(0)!!.hourly_forecast?.let {
-                        ReAdapter(
-                            it
-                        )
-                    }
+                    val reAdapter = ReAdapter(weatherBean.result!!.heWeather5[0].hourly_forecast)
                     recyclerView.adapter = reAdapter
                     //未来七天  recyclerView滑动适配
-                    val reAdapter2 =
-                        weatherBean.result!!.heWeather5?.get(0)?.let { it.daily_forecast?.let { it1 ->
-                            ReAdapter2(
-                                it1
-                            )
-                        } }
+                    val reAdapter2 = ReAdapter2(weatherBean.result!!.heWeather5[0].daily_forecast)
                     recyclerView2.adapter = reAdapter2
-                    tv_cityName.text = weatherBean.result!!.heWeather5?.get(0)!!.basic!!.city
+                    tv_cityName.text = weatherBean.result!!.heWeather5[0].basic!!.city
                     //生活指数部分
-                    tv1.text =
-                        "舒适度指数：" + weatherBean.result?.heWeather5?.get(0)!!.suggestion!!.comf!!.brf
-                    tv2.text = "洗车指数：" + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.cw!!.brf
-                    tv3.text = "穿衣指数：" + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.drsg!!.brf
-                    tv4.text = "感冒指数：" + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.flu!!.brf
-                    tv5.text =
-                        "运动指数：" + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.sport!!.brf
-                    tv6.text = "旅游指数：" + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.trav!!.brf
+                    tv1.text = "舒适度指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.comf!!.brf
+                    tv2.text = "洗车指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.cw!!.brf
+                    tv3.text = "穿衣指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.drsg!!.brf
+                    tv4.text = "感冒指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.flu!!.brf
+                    tv5.text = "运动指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.sport!!.brf
+                    tv6.text = "旅游指数：" + weatherBean.result!!.heWeather5[0].suggestion!!.trav!!.brf
                     tv11.text =
-                        "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.comf!!.txt
-                    tv22.text = "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.cw!!.txt
+                        "      " + weatherBean.result!!.heWeather5[0].suggestion!!.comf!!.txt
+                    tv22.text = "      " + weatherBean.result!!.heWeather5[0].suggestion!!.cw!!.txt
                     tv33.text =
-                        "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.drsg!!.txt
+                        "      " + weatherBean.result!!.heWeather5[0].suggestion!!.drsg!!.txt
                     tv44.text =
-                        "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.flu!!.txt
+                        "      " + weatherBean.result!!.heWeather5[0].suggestion!!.flu!!.txt
                     tv55.text =
-                        "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.sport!!.txt
+                        "      " + weatherBean.result!!.heWeather5[0].suggestion!!.sport!!.txt
                     tv66.text =
-                        "      " + weatherBean.result!!.heWeather5?.get(0)!!.suggestion!!.trav!!.txt
+                        "      " + weatherBean.result!!.heWeather5[0].suggestion!!.trav!!.txt
                     refreshLayout.isRefreshing = false
                     Toast.makeText(
                         requireActivity(),
-                        "更新时间" + weatherBean.result!!.heWeather5?.get(0)!!.basic!!.update!!.loc,
+                        "更新时间" + weatherBean.result!!.heWeather5[0].basic!!.update!!.loc,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
