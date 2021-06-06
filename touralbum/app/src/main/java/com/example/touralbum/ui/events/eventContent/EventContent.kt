@@ -2,6 +2,7 @@ package com.example.touralbum.ui.events.eventContent
 
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.PixelFormat
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.touralbum.ui.events.Event
 import com.example.touralbum.R
+import com.example.touralbum.ui.diary.CreateDairy
 import java.io.File
 
 
@@ -99,8 +101,9 @@ class EventContent : AppCompatActivity() {
                     inputDialog.show()
                 }
                 2 -> {//旅行日记\
-
-                    Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, CreateDairy::class.java)
+                    startActivity(intent)
+                    //Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
                     //todo 跳转到对应的日记页面
                 }
                 3 -> {//删除事件
