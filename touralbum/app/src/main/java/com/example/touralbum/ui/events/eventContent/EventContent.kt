@@ -100,13 +100,7 @@ class EventContent : AppCompatActivity() {
                     }
                     inputDialog.show()
                 }
-                2 -> {//旅行日记\
-                    val intent = Intent(this, CreateDairy::class.java)
-                    startActivity(intent)
-                    //Toast.makeText(this, "diary", Toast.LENGTH_SHORT).show()
-                    //todo 跳转到对应的日记页面
-                }
-                3 -> {//删除事件
+                2 -> {//删除事件
                     val inputDialog = AlertDialog.Builder(this)
                     inputDialog.apply {
                         setTitle("确定删除？")
@@ -179,7 +173,6 @@ class EventContent : AppCompatActivity() {
     private fun initFuncBtn() {
         funcBtnList.add(FuncBtn(R.drawable.ic_event_info,"event info"))
         funcBtnList.add(FuncBtn(R.drawable.ic_add_album,"add album"))
-        funcBtnList.add(FuncBtn(R.drawable.ic_event_diary,"diary"))
         funcBtnList.add(FuncBtn(R.drawable.ic_delete,"delete event"))
     }
 }
