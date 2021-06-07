@@ -30,6 +30,7 @@
         android:theme="@style/Theme.Touralbum">
 
         <activity android:name=".ui.events.photoViewer.PhotoViewer" />
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
