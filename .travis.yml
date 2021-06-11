@@ -1,6 +1,6 @@
 # Building a Java project
 language: java
-os : Android
+os : android
 
 # We can specify a list of JDKs to be used for testing
 jdk:
