@@ -44,7 +44,7 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 
 支持自定义行程名称、时间和同行人；地点支持实时获取当前地点或自定义。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/creatingpage.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/Location.gif" width="200px"> | 
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/creatingpage.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/Location.gif" width="200px"> | 
 | - | - |
 
 ### 查看事件内容
@@ -75,7 +75,7 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 
 支持设置定时提醒，到达设置的时间点会有闹钟提醒；支持设置提醒等级：有默认和重要两种选择；为提醒添加文字描述。
 
-| <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/TimeSelector.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/TimeSelector.jpg" width="200px"> |
 | - | - | - | - |
 
 ### 旅行日记
