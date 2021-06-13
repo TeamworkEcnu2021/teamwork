@@ -8,6 +8,20 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 如果你正在进行一段令人难忘的旅行，它可以帮助你随时随地记录当下的心情，也会贴心地提醒你当地的气候变化和下一站的目的地；同时，Touralbum的集邮功能帮助你收集游览过的地点，并将其妥善安放。你的集邮本中存放着你的“战利品”们！如果你在旅行中醉心美景而无暇他顾，没关系，Touralbum同样支持你在旅行归来后再行创建你的集邮本。
 作为你的可靠旅行伙伴，Touralbum可以帮助你简化旅行中的准备工作：你可以实时地随手记录每天的见闻、灵感与思考，一站式地完成旅行经历的收集和高效记录。
 
+## Quick Links
++ **[功能特性](#功能特性)**
++ **[效果演示](admin.css)**
+  + [创建出行事件](#创建出行事件)
+  + [查看事件内容](#查看事件内容)
+  + [为事件添加相册](#为事件添加相册)
+  + [查看相册内容](#查看相册内容)
+  + [添加提醒](#添加提醒)
+  + [旅行日记](#旅行日记)
+  + [天气](#天气)
+  + [删除](#删除)
++ **[团队信息](#团队信息)**
++ **[想说的话](#想说的话)**
+
 ## 功能特性
 
 ### 创建你的集邮本
@@ -44,7 +58,7 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 
 支持自定义行程名称、时间和同行人；地点支持实时获取当前地点或自定义。
 
-| <img src="https://github.com/operaghost/teamwork/blob/main/images/creatingpage.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/Location.gif" width="200px"> | 
+| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/creatingpage.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/Location.gif" width="200px"> | 
 | - | - |
 
 ### 查看事件内容
@@ -75,7 +89,7 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 
 支持设置定时提醒，到达设置的时间点会有闹钟提醒；支持设置提醒等级：有默认和重要两种选择；为提醒添加文字描述。
 
-| <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/TimeSelector.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/TimeSelector.jpg" width="200px"> |
 | - | - | - | - |
 
 ### 旅行日记
