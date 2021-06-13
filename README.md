@@ -163,7 +163,7 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 - 部分usecase设计
 - 事件创建、旅行日记模块和app引导页的开发
 - 项目中的部分debug
-- 演示视频的录制并调整演示ppt
+- [演示视频](https://github.com/operaghost/teamwork/blob/main/docs/presentation/DemoVedio.md)的录制并调整演示ppt
 - 现版本readme文档撰写
 
 #### 程瑶丽
