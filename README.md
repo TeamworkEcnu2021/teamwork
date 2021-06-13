@@ -51,52 +51,52 @@ Touralbum是一款轻便的、为每一位背包客或是热爱生活的你准�
 
 单个事件下属多个相册，可在事件详情页进行创建、删除，同样地，事件详情页支持查看初始化事件时对其赋予的属性，如标题、时间、同行人和地点。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/EventContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/EventContent3.jpg" width="200px"> | 
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/EventContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/EventContent3.jpg" width="200px"> | 
 | - | - |
 
 ### 为事件添加相册
 
 支持自定义相册名，并从手机的文件管理器选择照片上传。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/AlbumName.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/AddPhoto.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/PhotoSeletor.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/AlbumName.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/AddPhoto.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/PhotoSeletor.jpg" width="200px"> |
 | - | - | - |
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/dictionary.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/dictionary2.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/dictionary3.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/dictionary.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/dictionary2.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/dictionary3.jpg" width="200px"> |
 | - | - | - |
 
 ### 查看相册内容
 
 对相册内照片进行瀑布流式展示，保证美观和布局合理。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/AlbumContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/PictureDelay.gif" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/AlbumContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/PictureDelay.gif" width="200px"> |
 | - | - |
 
 ### 添加提醒
 
 支持设置定时提醒，到达设置的时间点会有闹钟提醒；支持设置提醒等级：有默认和重要两种选择；为提醒添加文字描述。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/TimeSelector.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderAdd.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderList.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DateSelector.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/TimeSelector.jpg" width="200px"> |
 | - | - | - | - |
 
 ### 旅行日记
 
 支持自定义日记标题，可随时添加、修改日记内容，系统记录最后一次修改时间。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DairyContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DairyList.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/DairyContent.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/DairyList.jpg" width="200px"> |
 | - | - |
 
 ### 天气
 
 支持三小时内实时天气播报和七日内的天气状况预报，同时提供一系列生活及旅行中常用的气候指数作为用户的出行建议。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/weather1.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/weather2.jpg" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/weather1.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/weather2.jpg" width="200px"> |
 | - | - |
 
 ### 删除
 
 支持删除已有的相册、日记或提醒，删除时弹出对话框要求用户对删除事件进行确认，避免误删。
 
-| <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/AlbumDelete.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/DairyDelete.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/tree/main/docs/images/ReminderDelete.gif" width="200px"> |
+| <img src="https://github.com/operaghost/teamwork/blob/main/images/AlbumDelete.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/DairyDelete.jpg" width="200px"> | <img src="https://github.com/operaghost/teamwork/blob/main/images/ReminderDelete.gif" width="200px"> |
 | - | - | - |
 
 ## 团队信息
